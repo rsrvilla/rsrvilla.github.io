@@ -1,307 +1,313 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>RSR Villa Bhimtal | Mountain View Private Stay</title>
-    <meta name="description" content="RSR Villa Bhimtal offers peaceful mountain views, spacious private stays, balcony views, and secure parking. Experience a serene and private stay in the hills of Bhimtal.">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>RSR Villa Bhimtal | Mountain View Private Stay</title>
 
-    <style>
-        :root {
-            --primary-color: #d4af37;
-            --secondary-color: #0d1b2a;
-            --text-color: #333;
-            --light-bg: #f4f6f8;
-            --white: #ffffff;
-            --font-main: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
+<meta name="description" content="Peaceful mountain view private stay in Bhimtal offering balcony views, modern interiors, serene surroundings and premium comfort near major tourist attractions.">
 
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: var(--font-main); color: var(--text-color); line-height: 1.6; background-color: var(--white); }
-        a { text-decoration: none; color: inherit; }
-        ul { list-style: none; }
+<style>
+:root{
+--primary:#d4af37;
+--dark:#0d1b2a;
+--light:#f5f7fa;
+--white:#fff;
+}
 
-        header {
-            background-color: var(--white);
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-            position: fixed;
-            width: 100%;
-            top: 0;
-            z-index: 1000;
-        }
+*{margin:0;padding:0;box-sizing:border-box;font-family:Segoe UI;}
 
-        .top-bar {
-            background-color: var(--secondary-color);
-            color: var(--white);
-            font-size: 0.85rem;
-            padding: 8px 5%;
-            display: flex;
-            justify-content: space-between;
-        }
+body{line-height:1.6;color:#333;background:#fff;}
 
-        .nav-container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 15px 5%;
-        }
+header{
+position:fixed;
+top:0;
+width:100%;
+background:#fff;
+padding:15px 5%;
+display:flex;
+justify-content:space-between;
+align-items:center;
+box-shadow:0 2px 10px rgba(0,0,0,0.08);
+z-index:1000;
+}
 
-        .logo {
-            font-size: 1.8rem;
-            font-weight: bold;
-            color: var(--secondary-color);
-        }
+.logo{font-size:22px;font-weight:bold;color:var(--dark);}
+.logo span{color:var(--primary);}
 
-        .logo span { color: var(--primary-color); }
+.contact-badge{
+background:var(--primary);
+color:#fff;
+padding:8px 15px;
+border-radius:30px;
+font-weight:bold;
+font-size:14px;
+}
 
-        .nav-links { display: flex; gap: 25px; }
+.hero{
+height:90vh;
+background:linear-gradient(rgba(0,0,0,0.55),rgba(0,0,0,0.55)),url('hero.jpg') center/cover no-repeat;
+display:flex;
+align-items:center;
+justify-content:center;
+text-align:center;
+color:#fff;
+margin-top:70px;
+position:relative;
+}
 
-        .nav-links a {
-            font-weight: 500;
-            color: var(--secondary-color);
-            transition: color 0.3s;
-        }
+.hero h1{font-size:40px;margin-bottom:15px;}
+.hero p{max-width:700px;margin:auto;font-size:18px;}
 
-        .nav-links a:hover { color: var(--primary-color); }
+.hero-contact{
+position:absolute;
+bottom:30px;
+left:50%;
+transform:translateX(-50%);
+background:rgba(0,0,0,0.7);
+padding:12px 25px;
+border-radius:40px;
+font-size:16px;
+}
 
-        .book-btn {
-            background-color: var(--primary-color);
-            color: var(--white);
-            padding: 10px 20px;
-            border-radius: 4px;
-            font-weight: bold;
-        }
+.section{padding:80px 5%;}
+.section h2{text-align:center;margin-bottom:40px;font-size:28px;color:var(--dark);}
 
-        .hero {
-            height: 85vh;
-            background: linear-gradient(rgba(0,0,0,0.65), rgba(0,0,0,0.65)),
-            url('https://images.unsplash.com/photo-1505691938895-1758d7feb511?auto=format&fit=crop&w=1600&q=80')
-            no-repeat center center/cover;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            color: var(--white);
-            margin-top: 80px;
-        }
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:30px;}
 
-        .hero-content h1 {
-            font-size: 3.2rem;
-            margin-bottom: 15px;
-        }
+.card{
+background:#fff;
+border-radius:8px;
+overflow:hidden;
+box-shadow:0 5px 15px rgba(0,0,0,0.08);
+}
 
-        .hero-content p {
-            font-size: 1.2rem;
-            max-width: 700px;
-            margin: 0 auto;
-        }
+/* SLIDER */
+.slider{position:relative;height:280px;overflow:hidden;}
+.slide{width:100%;height:280px;object-fit:cover;display:none;}
+.slide.active{display:block;}
 
-        .section { padding: 80px 5%; }
+.prev,.next{
+position:absolute;
+top:50%;
+transform:translateY(-50%);
+background:rgba(0,0,0,0.5);
+color:#fff;
+border:none;
+padding:8px 12px;
+cursor:pointer;
+}
 
-        .section-title {
-            text-align: center;
-            margin-bottom: 50px;
-        }
+.prev{left:10px;}
+.next{right:10px;}
 
-        .section-title h2 {
-            font-size: 2.2rem;
-            color: var(--secondary-color);
-        }
+.card-content{padding:20px;}
 
-        .divider {
-            width: 60px;
-            height: 3px;
-            background-color: var(--primary-color);
-            margin: 10px auto;
-        }
+.gallery img{
+width:100%;
+height:220px;
+object-fit:cover;
+border-radius:8px;
+}
 
-        .rooms-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-        }
+.attractions ul{
+list-style:none;
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+gap:15px;
+text-align:center;
+}
 
-        .room-card {
-            background: var(--white);
-            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
-            border-radius: 8px;
-            overflow: hidden;
-            transition: 0.3s;
-        }
+.attractions li{
+background:var(--light);
+padding:15px;
+border-radius:8px;
+font-weight:600;
+}
 
-        .room-card:hover { transform: translateY(-5px); }
+.booking{
+background:var(--light);
+padding:40px;
+border-radius:10px;
+max-width:700px;
+margin:auto;
+}
 
-        .room-img {
-            height: 220px;
-            background-size: cover;
-            background-position: center;
-        }
+.booking input,
+.booking select,
+.booking textarea{
+width:100%;
+padding:10px;
+margin-bottom:15px;
+border:1px solid #ddd;
+border-radius:5px;
+}
 
-        .room-content { padding: 20px; }
+.booking button{
+background:var(--primary);
+color:#fff;
+border:none;
+padding:12px;
+width:100%;
+font-weight:bold;
+cursor:pointer;
+}
 
-        .room-content h3 {
-            color: var(--secondary-color);
-            margin-bottom: 10px;
-        }
+/* Floating Buttons */
+.whatsapp{
+position:fixed;
+bottom:20px;
+right:20px;
+background:#25D366;
+color:#fff;
+padding:14px;
+border-radius:50%;
+font-size:22px;
+text-decoration:none;
+box-shadow:0 5px 15px rgba(0,0,0,0.3);
+}
 
-        .room-price {
-            margin-top: 10px;
-            font-weight: bold;
-            color: var(--primary-color);
-        }
-
-        .amenities {
-            background-color: var(--light-bg);
-        }
-
-        .amenities-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 20px;
-            text-align: center;
-        }
-
-        .amenity-item {
-            background: var(--white);
-            padding: 30px;
-            border-radius: 8px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-        }
-
-        footer {
-            background-color: var(--secondary-color);
-            color: var(--white);
-            padding: 50px 5% 20px;
-        }
-
-        .footer-content {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 40px;
-            margin-bottom: 40px;
-        }
-
-        .footer-col h4 {
-            color: var(--primary-color);
-            margin-bottom: 20px;
-        }
-
-        .copyright {
-            text-align: center;
-            border-top: 1px solid rgba(255,255,255,0.1);
-            padding-top: 20px;
-            font-size: 0.9rem;
-            color: #aaa;
-        }
-    </style>
+.call-box{
+position:fixed;
+bottom:90px;
+right:20px;
+background:var(--dark);
+color:#fff;
+padding:10px 15px;
+border-radius:30px;
+font-size:14px;
+}
+</style>
 </head>
 
 <body>
 
 <header>
-    <div class="top-bar">
-        <span>📞 +91 6398038550</span>
-        <span>📞 +91 9259370967</span>
-    </div>
-
-    <div class="nav-container">
-        <div class="logo">RSR <span>VILLA</span></div>
-        <nav>
-            <ul class="nav-links">
-                <li><a href="#">Home</a></li>
-                <li><a href="#rooms">Rooms</a></li>
-                <li><a href="#amenities">Amenities</a></li>
-                <li><a href="#">Contact</a></li>
-            </ul>
-        </nav>
-        <a href="#" class="book-btn">Book Now</a>
-    </div>
+<div class="logo">RSR <span>VILLA</span></div>
+<div class="contact-badge">Direct Booking Available</div>
 </header>
 
 <section class="hero">
-    <div class="hero-content">
-        <h1>RSR Villa – Elevated Living in Bhimtal</h1>
-        <p>Wake up to breathtaking mountain views, unwind in peaceful surroundings, and experience refined comfort in the scenic hills of Bhimtal.</p>
-    </div>
+<div>
+<h1>Experience Elevated Living in Bhimtal</h1>
+<p>Peaceful mountain surroundings, modern interiors, and a private retreat designed for comfort and relaxation.</p>
+</div>
+<div class="hero-contact">
+Call / WhatsApp: +91 63980 38550 | +91 93687 98595
+</div>
 </section>
 
-<section class="section" id="rooms">
-    <div class="section-title">
-        <h2>Stay Options</h2>
-        <div class="divider"></div>
-    </div>
-
-    <div class="rooms-grid">
-        <div class="room-card">
-            <div class="room-img" style="background-image:url('https://images.unsplash.com/photo-1616594039964-40891a909d93?auto=format&fit=crop&w=600&q=80')"></div>
-            <div class="room-content">
-                <h3>Master Bedroom Experience</h3>
-                <p>A grand private room with attached bath, designed for premium comfort and peaceful mountain stays.</p>
-                <div class="room-price">Luxury & Privacy Combined</div>
-            </div>
-        </div>
-
-        <div class="room-card">
-            <div class="room-img" style="background-image:url('https://images.unsplash.com/photo-1591088398332-8a7791972843?auto=format&fit=crop&w=600&q=80')"></div>
-            <div class="room-content">
-                <h3>Premium Bedroom Retreat</h3>
-                <p>A spacious and thoughtfully designed bedroom offering comfort, convenience, and serene surroundings.</p>
-                <div class="room-price">Comfort with Convenience</div>
-            </div>
-        </div>
-
-        <div class="room-card">
-            <div class="room-img" style="background-image:url('https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?auto=format&fit=crop&w=600&q=80')"></div>
-            <div class="room-content">
-                <h3>Complete Private Floor</h3>
-                <p>Enjoy an entire beautifully designed level featuring spacious interiors, balcony views, living area, kitchen, and total privacy.</p>
-                <div class="room-price">Ideal for Families & Groups</div>
-            </div>
-        </div>
-    </div>
+<!-- MASTER BEDROOM -->
+<section class="section">
+<h2>Master Bedroom Suite</h2>
+<div class="card">
+<div class="slider">
+<img src="master1.jpg" class="slide active">
+<img src="master2.jpg" class="slide">
+<img src="master3.jpg" class="slide">
+<img src="master4.jpg" class="slide">
+<img src="master-bath.jpg" class="slide">
+<img src="master-balcony.jpg" class="slide">
+<button class="prev">&#10094;</button>
+<button class="next">&#10095;</button>
+</div>
+<div class="card-content">
+<p>Spacious master suite with attached bathroom and private balcony offering beautiful mountain views.</p>
+</div>
+</div>
 </section>
 
-<section class="section amenities" id="amenities">
-    <div class="section-title">
-        <h2>Villa Amenities</h2>
-        <div class="divider"></div>
-    </div>
-
-    <div class="amenities-grid">
-        <div class="amenity-item">
-            <h3>Mountain View Balcony</h3>
-        </div>
-        <div class="amenity-item">
-            <h3>Private Parking</h3>
-        </div>
-        <div class="amenity-item">
-            <h3>Spacious Living Area</h3>
-        </div>
-        <div class="amenity-item">
-            <h3>Peaceful Location</h3>
-        </div>
-    </div>
+<!-- BEDROOM 2 -->
+<section class="section">
+<h2>Bedroom Two</h2>
+<div class="card">
+<div class="slider">
+<img src="bed2-1.jpg" class="slide active">
+<img src="bed2-2.jpg" class="slide">
+<img src="bed2-3.jpg" class="slide">
+<img src="bed2-bath.jpg" class="slide">
+<button class="prev">&#10094;</button>
+<button class="next">&#10095;</button>
+</div>
+<div class="card-content">
+<p>Comfortable and peaceful bedroom with attached bathroom for a relaxing stay.</p>
+</div>
+</div>
 </section>
 
-<footer>
-    <div class="footer-content">
-        <div class="footer-col">
-            <h4>RSR Villa</h4>
-            <p>RSR Villa blends panoramic mountain views, spacious interiors, private parking, and peaceful surroundings to create a refined stay experience in Bhimtal.</p>
-        </div>
+<!-- LIVING AREA -->
+<section class="section">
+<h2>Living, Dining & Kitchen</h2>
+<div class="card">
+<div class="slider">
+<img src="living.jpg" class="slide active">
+<img src="dining.jpg" class="slide">
+<img src="kitchen.jpg" class="slide">
+<button class="prev">&#10094;</button>
+<button class="next">&#10095;</button>
+</div>
+</div>
+</section>
 
-        <div class="footer-col">
-            <h4>Contact Info</h4>
-            <p>📍 Bhimtal, Uttarakhand</p>
-            <p>📞 +91 6398038550</p>
-            <p>✉️ rsrvillabhimtal@gmail.com</p>
-        </div>
-    </div>
+<!-- SURROUNDINGS -->
+<section class="section">
+<h2>Surroundings Gallery</h2>
+<div class="grid gallery">
+<img src="surround1.jpg">
+<img src="surround2.jpg">
+<img src="surround3.jpg">
+</div>
+</section>
 
-    <div class="copyright">
-        © 2026 RSR Villa. All rights reserved.
-    </div>
-</footer>
+<!-- NEARBY -->
+<section class="section attractions">
+<h2>Nearby Attractions</h2>
+<ul>
+<li>Bhimtal Lake</li>
+<li>Sattal</li>
+<li>Naukuchiatal</li>
+<li>Nainital</li>
+<li>Kainchi Dham</li>
+</ul>
+</section>
+
+<!-- BOOKING -->
+<section class="section">
+<h2>Book Your Stay</h2>
+<div class="booking">
+<form action="https://formsubmit.co/rsrvillabhimtal@gmail.com" method="POST">
+<input type="text" name="name" placeholder="Your Name" required>
+<input type="tel" name="phone" placeholder="Phone Number" required>
+<input type="date" name="checkin" required>
+<input type="date" name="checkout" required>
+<select name="room">
+<option>Master Bedroom</option>
+<option>Bedroom Two</option>
+<option>Complete Stay</option>
+</select>
+<textarea name="message" placeholder="Additional Message"></textarea>
+<button type="submit">Send Booking Request</button>
+</form>
+</div>
+</section>
+
+<a href="https://wa.me/916398038550" class="whatsapp">💬</a>
+<div class="call-box">📞 Call Now</div>
+
+<script>
+document.querySelectorAll(".slider").forEach(slider=>{
+let slides=slider.querySelectorAll(".slide");
+let next=slider.querySelector(".next");
+let prev=slider.querySelector(".prev");
+let index=0;
+function show(i){
+slides.forEach(s=>s.classList.remove("active"));
+slides[i].classList.add("active");
+}
+next.onclick=()=>{index=(index+1)%slides.length;show(index);}
+prev.onclick=()=>{index=(index-1+slides.length)%slides.length;show(index);}
+});
+</script>
 
 </body>
 </html>
