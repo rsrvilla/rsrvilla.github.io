@@ -3,179 +3,203 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>RSR Villa Bhimtal | Mountain View Private Stay</title>
+<title>RSR Villa | Luxury Homestay in Bhimtal</title>
 
-<meta name="description" content="Peaceful mountain view private stay in Bhimtal offering balcony views, modern interiors, serene surroundings and premium comfort near major tourist attractions.">
+<!-- GOOGLE FONT -->
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+
+<!-- FONT AWESOME -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
 <style>
-:root{
---primary:#d4af37;
---dark:#0d1b2a;
---light:#f5f7fa;
---white:#fff;
+*{margin:0;padding:0;box-sizing:border-box}
+body{
+font-family:'Poppins',sans-serif;
+background:#f6f4ef;
+color:#333;
 }
 
-*{margin:0;padding:0;box-sizing:border-box;font-family:Segoe UI;}
-
-body{line-height:1.6;color:#333;background:#fff;}
-
+/* HEADER */
 header{
 position:fixed;
 top:0;
 width:100%;
-background:#fff;
-padding:15px 5%;
+background:#ffffffee;
 display:flex;
 justify-content:space-between;
 align-items:center;
-box-shadow:0 2px 10px rgba(0,0,0,0.08);
+padding:15px 40px;
 z-index:1000;
 }
-
-.logo{font-size:22px;font-weight:bold;color:var(--dark);}
-.logo span{color:var(--primary);}
-
-.contact-badge{
-background:var(--primary);
-color:#fff;
-padding:8px 15px;
-border-radius:30px;
-font-weight:bold;
-font-size:14px;
+header h1{
+font-family:'Playfair Display',serif;
+color:#2f4f4f;
+}
+header nav a{
+margin:0 12px;
+text-decoration:none;
+color:#333;
+font-weight:500;
 }
 
+/* HERO */
 .hero{
-height:90vh;
-background:linear-gradient(rgba(0,0,0,0.55),rgba(0,0,0,0.55)),url('hero.jpg') center/cover no-repeat;
+height:100vh;
+background:url('https://images.unsplash.com/photo-1501785888041-af3ef285b470') center/cover no-repeat;
 display:flex;
 align-items:center;
 justify-content:center;
 text-align:center;
-color:#fff;
-margin-top:70px;
-position:relative;
+padding:20px;
 }
-
-.hero h1{font-size:40px;margin-bottom:15px;}
-.hero p{max-width:700px;margin:auto;font-size:18px;}
-
-.hero-contact{
-position:absolute;
-bottom:30px;
-left:50%;
-transform:translateX(-50%);
-background:rgba(0,0,0,0.7);
+.hero-content{
+background:#ffffffcc;
+padding:40px;
+border-radius:12px;
+}
+.hero h2{
+font-family:'Playfair Display',serif;
+font-size:48px;
+margin-bottom:10px;
+}
+.hero p{
+font-size:18px;
+margin-bottom:20px;
+}
+.hero button{
 padding:12px 25px;
-border-radius:40px;
-font-size:16px;
-}
-
-.section{padding:80px 5%;}
-.section h2{text-align:center;margin-bottom:40px;font-size:28px;color:var(--dark);}
-
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:30px;}
-
-.card{
-background:#fff;
-border-radius:8px;
-overflow:hidden;
-box-shadow:0 5px 15px rgba(0,0,0,0.08);
-}
-
-/* SLIDER */
-.slider{position:relative;height:280px;overflow:hidden;}
-.slide{width:100%;height:280px;object-fit:cover;display:none;}
-.slide.active{display:block;}
-
-.prev,.next{
-position:absolute;
-top:50%;
-transform:translateY(-50%);
-background:rgba(0,0,0,0.5);
-color:#fff;
 border:none;
-padding:8px 12px;
+background:#2f4f4f;
+color:white;
+font-size:16px;
+border-radius:30px;
 cursor:pointer;
 }
 
-.prev{left:10px;}
-.next{right:10px;}
-
-.card-content{padding:20px;}
-
-.gallery img{
-width:100%;
-height:220px;
-object-fit:cover;
-border-radius:8px;
+/* SECTION */
+section{
+padding:80px 40px;
+max-width:1200px;
+margin:auto;
+}
+.section-title{
+text-align:center;
+font-family:'Playfair Display',serif;
+font-size:36px;
+margin-bottom:40px;
 }
 
-.attractions ul{
-list-style:none;
+/* PRICING */
+.pricing{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:25px;
+}
+.price-card{
+background:white;
+border-radius:15px;
+padding:25px;
+text-align:center;
+box-shadow:0 10px 25px rgba(0,0,0,0.1);
+}
+.price-card h3{
+margin-bottom:10px;
+}
+.price-card span{
+font-size:22px;
+font-weight:600;
+color:#2f4f4f;
+}
+.price-card button{
+margin-top:15px;
+padding:10px 20px;
+border:none;
+background:#2f4f4f;
+color:white;
+border-radius:25px;
+cursor:pointer;
+}
+
+/* GALLERY */
+.gallery{
 display:grid;
 grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
 gap:15px;
-text-align:center;
 }
-
-.attractions li{
-background:var(--light);
-padding:15px;
-border-radius:8px;
-font-weight:600;
-}
-
-.booking{
-background:var(--light);
-padding:40px;
-border-radius:10px;
-max-width:700px;
-margin:auto;
-}
-
-.booking input,
-.booking select,
-.booking textarea{
+.gallery img{
 width:100%;
-padding:10px;
-margin-bottom:15px;
-border:1px solid #ddd;
-border-radius:5px;
+height:200px;
+object-fit:cover;
+border-radius:12px;
 }
 
-.booking button{
-background:var(--primary);
-color:#fff;
-border:none;
+/* CONTACT */
+.contact-box{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:30px;
+}
+form input,form textarea{
+width:100%;
+padding:12px;
+margin-bottom:15px;
+border-radius:8px;
+border:1px solid #ccc;
+}
+form button{
 padding:12px;
 width:100%;
-font-weight:bold;
-cursor:pointer;
-}
-
-/* Floating Buttons */
-.whatsapp{
-position:fixed;
-bottom:20px;
-right:20px;
-background:#25D366;
-color:#fff;
-padding:14px;
-border-radius:50%;
-font-size:22px;
-text-decoration:none;
-box-shadow:0 5px 15px rgba(0,0,0,0.3);
-}
-
-.call-box{
-position:fixed;
-bottom:90px;
-right:20px;
-background:var(--dark);
-color:#fff;
-padding:10px 15px;
+border:none;
+background:#2f4f4f;
+color:white;
 border-radius:30px;
-font-size:14px;
+}
+
+/* MAP */
+iframe{
+width:100%;
+height:300px;
+border-radius:15px;
+border:none;
+}
+
+/* FOOTER */
+footer{
+background:#2f4f4f;
+color:white;
+text-align:center;
+padding:30px;
+}
+footer a{
+color:white;
+margin:0 10px;
+font-size:20px;
+}
+
+/* FLOAT BUTTONS */
+.whatsapp,.call{
+position:fixed;
+right:20px;
+padding:15px;
+border-radius:50%;
+color:white;
+font-size:22px;
+z-index:999;
+}
+.whatsapp{
+bottom:90px;
+background:#25d366;
+}
+.call{
+bottom:20px;
+background:#2f4f4f;
+}
+
+/* MOBILE */
+@media(max-width:768px){
+.hero h2{font-size:32px}
+.contact-box{grid-template-columns:1fr}
+header{padding:10px 20px}
 }
 </style>
 </head>
@@ -183,131 +207,94 @@ font-size:14px;
 <body>
 
 <header>
-<div class="logo">RSR <span>VILLA</span></div>
-<div class="contact-badge">Direct Booking Available</div>
+<h1>RSR Villa</h1>
+<nav>
+<a href="#about">About</a>
+<a href="#pricing">Pricing</a>
+<a href="#gallery">Gallery</a>
+<a href="#contact">Contact</a>
+</nav>
 </header>
 
-<section class="hero">
-<div>
-<h1>Experience Elevated Living in Bhimtal</h1>
-<p>Peaceful mountain surroundings, modern interiors, and a private retreat designed for comfort and relaxation.</p>
+<div class="hero">
+<div class="hero-content">
+<h2>RSR Villa, Bhimtal</h2>
+<p>Bohemian • Nature • Peaceful Mountain Stay</p>
+<button onclick="document.getElementById('contact').scrollIntoView()">Book Now</button>
 </div>
-<div class="hero-contact">
-Call / WhatsApp: +91 63980 38550 | +91 92593 70967
 </div>
+
+<section id="about">
+<h2 class="section-title">Welcome to RSR Villa</h2>
+<p style="text-align:center">
+Experience a peaceful stay surrounded by mountains, nature and Indian handicraft interiors.
+</p>
 </section>
 
-<!-- MASTER BEDROOM -->
-<section class="section">
-<h2>Master Bedroom Suite</h2>
-<div class="card">
-<div class="slider">
-<img src="master1.jpg" class="slide active">
-<img src="master2.jpg" class="slide">
-<img src="master3.jpg" class="slide">
-<img src="master4.jpg" class="slide">
-<img src="master-bath.jpg" class="slide">
-<img src="master-balcony.jpg" class="slide">
-<button class="prev">&#10094;</button>
-<button class="next">&#10095;</button>
+<section id="pricing">
+<h2 class="section-title">Pricing Options</h2>
+<div class="pricing">
+<div class="price-card">
+<h3>Single Room</h3>
+<span>₹ XXXX / Night</span>
+<button>Enquire</button>
 </div>
-<div class="card-content">
-<p>Spacious master suite with attached bathroom and private balcony offering beautiful mountain views.</p>
+<div class="price-card">
+<h3>1 BHK</h3>
+<span>₹ XXXX / Night</span>
+<button>Enquire</button>
 </div>
+<div class="price-card">
+<h3>Master Bedroom</h3>
+<span>₹ XXXX / Night</span>
+<button>Enquire</button>
 </div>
-</section>
-
-<!-- BEDROOM 2 -->
-<section class="section">
-<h2>Bedroom Two</h2>
-<div class="card">
-<div class="slider">
-<img src="bed2-1.JPG" class="slide active">
-<img src="bed2-2.JPG" class="slide">
-<img src="bed2-3.jpg" class="slide">
-<img src="bed2-bath.jpg" class="slide">
-<button class="prev">&#10094;</button>
-<button class="next">&#10095;</button>
-</div>
-<div class="card-content">
-<p>Comfortable and peaceful bedroom with attached bathroom for a relaxing stay.</p>
+<div class="price-card">
+<h3>Complete 2 BHK Villa</h3>
+<span>₹ XXXX / Night</span>
+<button>Book Now</button>
 </div>
 </div>
 </section>
 
-<!-- LIVING AREA -->
-<section class="section">
-<h2>Living, Dining & Kitchen</h2>
-<div class="card">
-<div class="slider">
-<img src="living.jpg" class="slide active">
-<img src="dining.jpg" class="slide">
-<img src="kitchen.jpg" class="slide">
-<button class="prev">&#10094;</button>
-<button class="next">&#10095;</button>
-</div>
+<section id="gallery">
+<h2 class="section-title">Villa & Surroundings</h2>
+<div class="gallery">
+<img src="https://images.unsplash.com/photo-1505691938895-1758d7feb511">
+<img src="https://images.unsplash.com/photo-1507089947368-19c1da9775ae">
+<img src="https://images.unsplash.com/photo-1499793983690-e29da59ef1c2">
+<img src="https://images.unsplash.com/photo-1502672260266-1c1ef2d93688">
 </div>
 </section>
 
-<!-- SURROUNDINGS -->
-<section class="section">
-<h2>Surroundings Gallery</h2>
-<div class="grid gallery">
-<img src="surround1.jpg">
-<img src="surround2.jpg">
-<img src="surround3.jpg">
-</div>
-</section>
-
-<!-- NEARBY -->
-<section class="section attractions">
-<h2>Nearby Attractions</h2>
-<ul>
-<li>Bhimtal Lake</li>
-<li>Sattal</li>
-<li>Naukuchiatal</li>
-<li>Nainital</li>
-<li>Kainchi Dham</li>
-</ul>
-</section>
-
-<!-- BOOKING -->
-<section class="section">
-<h2>Book Your Stay</h2>
-<div class="booking">
-<form action="https://formsubmit.co/rsrvillabhimtal@gmail.com" method="POST">
-<input type="text" name="name" placeholder="Your Name" required>
-<input type="tel" name="phone" placeholder="Phone Number" required>
-<input type="date" name="checkin" required>
-<input type="date" name="checkout" required>
-<select name="room">
-<option>Master Bedroom</option>
-<option>Bedroom Two</option>
-<option>Complete Stay</option>
-</select>
-<textarea name="message" placeholder="Additional Message"></textarea>
-<button type="submit">Send Booking Request</button>
+<section id="contact">
+<h2 class="section-title">Enquiry & Location</h2>
+<div class="contact-box">
+<form>
+<input type="text" placeholder="Your Name">
+<input type="tel" placeholder="Phone Number">
+<input type="date">
+<input type="date">
+<textarea placeholder="Message"></textarea>
+<button type="submit">Submit Enquiry</button>
 </form>
+
+<div>
+<iframe src="https://www.google.com/maps?q=Bhimtal&output=embed"></iframe>
+</div>
 </div>
 </section>
 
-<a href="https://wa.me/916398038550" class="whatsapp">💬</a>
-<div class="call-box">📞 Call Now</div>
+<footer>
+<p>Follow Us</p>
+<a href="#"><i class="fab fa-instagram"></i></a>
+<a href="#"><i class="fab fa-facebook"></i></a>
+<a href="#"><i class="fab fa-whatsapp"></i></a>
+<p style="margin-top:15px">© RSR Villa, Bhimtal</p>
+</footer>
 
-<script>
-document.querySelectorAll(".slider").forEach(slider=>{
-let slides=slider.querySelectorAll(".slide");
-let next=slider.querySelector(".next");
-let prev=slider.querySelector(".prev");
-let index=0;
-function show(i){
-slides.forEach(s=>s.classList.remove("active"));
-slides[i].classList.add("active");
-}
-next.onclick=()=>{index=(index+1)%slides.length;show(index);}
-prev.onclick=()=>{index=(index-1+slides.length)%slides.length;show(index);}
-});
-</script>
+<a href="https://wa.me/91XXXXXXXXXX" class="whatsapp"><i class="fab fa-whatsapp"></i></a>
+<a href="tel:+91XXXXXXXXXX" class="call"><i class="fa fa-phone"></i></a>
 
 </body>
 </html>
