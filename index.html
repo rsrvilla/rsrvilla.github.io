@@ -80,7 +80,7 @@
         .gallery {
             display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px;
         }
-        .gallery-item { position: relative; overflow: hidden; height: 350px; cursor: pointer; }
+        .gallery-item { position: relative; overflow: hidden; height: 350px; cursor: pointer; border: 1px solid #ddd; }
         .gallery img {
             width: 100%; height: 100%; object-fit: cover;
             transition: transform 0.8s ease;
@@ -92,7 +92,7 @@
             color: white; font-family: 'Playfair Display', serif; font-size: 18px;
         }
 
-        /* NEARBY & PRICING CARDS */
+        /* CARDS Styling */
         .grid-container {
             display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 25px;
         }
@@ -102,10 +102,9 @@
         }
         .luxury-card:hover { border-color: var(--gold); transform: translateY(-5px); box-shadow: 0 10px 30px rgba(0,0,0,0.05); }
         .luxury-card h3 { font-family: 'Playfair Display', serif; font-size: 22px; margin-bottom: 15px; color: var(--gold); }
-        .luxury-card p { font-size: 14px; color: #666; }
         .price-tag { font-size: 18px; margin-top: 15px; display: block; font-weight: 600; }
 
-        /* CONTACT BOX */
+        /* CONTACT FORM */
         .contact-box {
             display: grid; grid-template-columns: 1fr 1fr; gap: 50px;
             background: var(--white); padding: 50px; border: 1px solid #eee;
@@ -114,7 +113,6 @@
             width: 100%; padding: 15px; margin-bottom: 20px;
             border: none; border-bottom: 1px solid #ccc; background: transparent; outline: none;
         }
-        input:focus { border-bottom: 1px solid var(--gold); }
         .submit-btn {
             background: var(--dark); color: white; border: none; padding: 15px;
             width: 100%; text-transform: uppercase; letter-spacing: 2px; cursor: pointer; transition: 0.3s;
@@ -123,9 +121,7 @@
 
         /* FOOTER */
         footer { background: var(--dark); color: #888; padding: 80px 60px; text-align: center; }
-        footer h2 { font-family: 'Playfair Display', serif; color: var(--gold); margin-bottom: 10px; letter-spacing: 2px; }
-        footer a { color: var(--gold); margin: 0 15px; font-size: 22px; transition: 0.3s; }
-        footer a:hover { color: white; }
+        footer h2 { font-family: 'Playfair Display', serif; color: var(--gold); margin-bottom: 10px; }
 
         /* FLOATING ACTION */
         .whatsapp, .call {
@@ -136,21 +132,28 @@
         .whatsapp { bottom: 95px; background: #25d366; }
         .call { bottom: 30px; background: var(--gold); }
 
-        /* LIGHTBOX */
+        /* UPDATED LIGHTBOX WITH SLIDER */
         #lightbox {
             display:none; position:fixed; top:0; left:0; width:100%; height:100%;
-            background:rgba(0,0,0,0.95); align-items:center; justify-content:center; z-index:2000;
+            background:rgba(0,0,0,0.98); align-items:center; justify-content:center; z-index:2000;
         }
         #lightbox img { max-width: 85%; max-height: 80%; border: 2px solid var(--gold); }
-        .close { position:absolute; top:30px; right:40px; color:white; font-size:40px; cursor:pointer; }
+        .close { position:absolute; top:30px; right:40px; color:white; font-size:50px; cursor:pointer; font-weight: 200; }
+        
+        .nav-btn {
+            position: absolute; top: 50%; transform: translateY(-50%);
+            background: rgba(255, 255, 255, 0.1); color: white; border: none;
+            padding: 20px; cursor: pointer; font-size: 30px; transition: 0.3s;
+        }
+        .nav-btn:hover { background: var(--gold); }
+        .prev-btn { left: 20px; }
+        .next-btn { right: 20px; }
 
         @media(max-width:768px){
             header { padding: 15px; flex-direction: column; }
-            header nav { margin-top: 10px; }
             header nav a { margin: 0 5px; font-size: 9px; }
-            .hero h2 { font-size: 36px; }
+            .hero h2 { font-size: 32px; }
             .contact-box { grid-template-columns: 1fr; padding: 20px; }
-            section { padding: 60px 20px; }
         }
     </style>
 </head>
@@ -189,25 +192,19 @@
     <div class="gallery">
         <div class="gallery-item" onclick="openLightbox('master')">
             <img src="master1.jpg">
-            <img src="master2.jpg">
-            <img src="master3.jpg">
-            <img src="master-bath.jpg">
-            <img src="master-balcony.jpg">
-            <div class="img-overlay">Master Bedroom</div>
+            <div class="img-overlay">Master Bedroom Suite</div>
         </div>
         <div class="gallery-item" onclick="openLightbox('bed2')">
             <img src="bedroom2-1.jpg">
-            <img src="bedroom2-2.jpg">
-            <img src="bedroom2-bath.jpg">
             <div class="img-overlay">Guest Suite</div>
         </div>
         <div class="gallery-item" onclick="openLightbox('living')">
             <img src="living1.jpg">
-            <div class="img-overlay">Living & Dining</div>
+            <div class="img-overlay">Living & Dining Area</div>
         </div>
         <div class="gallery-item" onclick="openLightbox('balcony')">
             <img src="balcony1.jpg">
-            <div class="img-overlay">Private Balcony</div>
+            <div class="img-overlay">Private Balcony View</div>
         </div>
     </div>
 </section>
@@ -225,11 +222,11 @@
 <section id="nearby" style="background: #fff;">
     <h2 class="section-title">Nearby Attractions</h2>
     <div class="grid-container">
-        <div class="luxury-card"><h3>Bhimtal Lake</h3><p>Boating and peaceful lakeside views just minutes away.</p></div>
+        <div class="luxury-card"><h3>Bhimtal Lake</h3><p>Boating and lakeside views minutes away.</p></div>
         <div class="luxury-card"><h3>Sattal</h3><p>A cluster of seven serene interconnected freshwater lakes.</p></div>
-        <div class="luxury-card"><h3>Naukuchiatal</h3><p>The "Lake of Nine Corners", famous for paragliding.</p></div>
+        <div class="luxury-card"><h3>Naukuchiatal</h3><p>Famous for paragliding and lake views.</p></div>
         <div class="luxury-card"><h3>Nainital</h3><p>Explore the vibrant Mall Road and the iconic Naini Lake.</p></div>
-        <div class="luxury-card"><h3>Kainchi Dham</h3><p>A spiritual retreat made famous by global seekers.</p></div>
+        <div class="luxury-card"><h3>Kainchi Dham</h3><p>A global spiritual retreat and peaceful temple.</p></div>
     </div>
 </section>
 
@@ -261,11 +258,9 @@
                 <option value="Complete 2BHK Villa">Complete 2BHK Villa</option>
             </select>
             <textarea name="message" placeholder="Message or Special Requests"></textarea>
-            <button type="submit" class="submit-btn">Send Reservation Enquiry</button>
+            <button type="submit" class="submit-btn">Send Enquiry</button>
         </form>
-        <div>
-            <iframe src="https://www.google.com/maps?q=RSR+Villa+Bhimtal+Uttarakhand&output=embed" style="width:100%; height:100%; min-height:380px; border:none; filter: grayscale(100%) invert(90%);"></iframe>
-        </div>
+        <iframe src="https://www.google.com/maps?q=RSR+Villa+Bhimtal+Uttarakhand&output=embed" style="width:100%; height:100%; min-height:380px; border:none; filter: grayscale(100%) invert(90%);"></iframe>
     </div>
 </section>
 
@@ -277,7 +272,7 @@
         <a href="https://www.facebook.com/share/1DB4MS2V8e/" target="_blank"><i class="fab fa-facebook"></i></a>
         <a href="https://wa.me/916398038550" target="_blank"><i class="fab fa-whatsapp"></i></a>
     </div>
-    <p style="margin-top:40px; font-size:11px; color: #555;">© 2026 RSR Villa Bhimtal. Handcrafted Luxury.</p>
+    <p style="margin-top:40px; font-size:11px; color: #555;">© 2026 RSR Villa Bhimtal. Handcrafted Luxury stays.</p>
 </footer>
 
 <a href="https://wa.me/916398038550" class="whatsapp"><i class="fab fa-whatsapp"></i></a>
@@ -285,24 +280,54 @@
 
 <div id="lightbox">
     <span class="close" onclick="closeLightbox()">×</span>
+    <button class="nav-btn prev-btn" onclick="changeSlide(-1)">❮</button>
     <img id="lightbox-img">
+    <button class="nav-btn next-btn" onclick="changeSlide(1)">❯</button>
 </div>
 
 <script>
-    let currentImages=[];
-    const galleries={
-        master:["master1.jpg","master2.jpg","master-bath.jpg","master-balcony.jpg"],
-        bed2:["bedroom2-1.jpg","bedroom2-2.jpg","bedroom2-bath.jpg"],
-        living:["living1.jpg","dining1.jpg","kitchen1.jpg"],
-        balcony:["balcony1.jpg"],
-        surround:["sur1.jpg","sur2.jpg","sur3.jpg","sur4.jpg"]
+    let currentImgIndex = 0;
+    let currentGallerySet = [];
+
+    const galleries = {
+        master: ["master1.jpg", "master2.jpg", "master3.jpg", "master-bath.jpg", "master-balcony.jpg"],
+        bed2: ["bedroom2-1.jpg", "bedroom2-2.jpg", "bedroom2-bath.jpg"],
+        living: ["living1.jpg", "dining1.jpg", "kitchen1.jpg"],
+        balcony: ["balcony1.jpg"],
+        surround: ["sur1.jpg", "sur2.jpg", "sur3.jpg", "sur4.jpg"]
     };
-    function openLightbox(type){
-        currentImages=galleries[type];
-        document.getElementById("lightbox").style.display="flex";
-        document.getElementById("lightbox-img").src=currentImages[0];
+
+    function openLightbox(type) {
+        currentGallerySet = galleries[type];
+        currentImgIndex = 0;
+        document.getElementById("lightbox").style.display = "flex";
+        document.getElementById("lightbox-img").src = currentGallerySet[currentImgIndex];
     }
-    function closeLightbox(){document.getElementById("lightbox").style.display="none";}
+
+    function closeLightbox() {
+        document.getElementById("lightbox").style.display = "none";
+    }
+
+    function changeSlide(direction) {
+        if (currentGallerySet.length <= 1) return;
+        
+        currentImgIndex += direction;
+        
+        // Loop controls
+        if (currentImgIndex >= currentGallerySet.length) currentImgIndex = 0;
+        if (currentImgIndex < 0) currentImgIndex = currentGallerySet.length - 1;
+        
+        document.getElementById("lightbox-img").src = currentGallerySet[currentImgIndex];
+    }
+
+    // Keyboard support
+    document.addEventListener('keydown', function(e) {
+        if (document.getElementById("lightbox").style.display === "flex") {
+            if (e.key === "ArrowLeft") changeSlide(-1);
+            if (e.key === "ArrowRight") changeSlide(1);
+            if (e.key === "Escape") closeLightbox();
+        }
+    });
 </script>
 
 </body>
