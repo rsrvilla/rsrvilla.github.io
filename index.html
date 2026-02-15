@@ -5,19 +5,12 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>RSR Villa | Luxury Homestay in Bhimtal</title>
 
-<!-- GOOGLE FONT -->
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
-
-<!-- FONT AWESOME -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
-body{
-font-family:'Poppins',sans-serif;
-background:#f6f4ef;
-color:#333;
-}
+body{font-family:'Poppins',sans-serif;background:#f6f4ef;color:#333}
 
 /* HEADER */
 header{
@@ -45,7 +38,7 @@ font-weight:500;
 /* HERO */
 .hero{
 height:100vh;
-background:url('https://images.unsplash.com/photo-1501785888041-af3ef285b470') center/cover no-repeat;
+background:url('hero.jpg') center/cover no-repeat;
 display:flex;
 align-items:center;
 justify-content:center;
@@ -62,32 +55,40 @@ font-family:'Playfair Display',serif;
 font-size:48px;
 margin-bottom:10px;
 }
-.hero p{
-font-size:18px;
-margin-bottom:20px;
-}
+.hero p{font-size:18px;margin-bottom:20px;}
 .hero button{
 padding:12px 25px;
 border:none;
 background:#2f4f4f;
 color:white;
-font-size:16px;
 border-radius:30px;
 cursor:pointer;
 }
 
 /* SECTION */
-section{
-padding:80px 40px;
-max-width:1200px;
-margin:auto;
-}
+section{padding:80px 40px;max-width:1200px;margin:auto;}
 .section-title{
 text-align:center;
 font-family:'Playfair Display',serif;
 font-size:36px;
 margin-bottom:40px;
 }
+
+/* GALLERY */
+.gallery{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:20px;
+}
+.gallery img{
+width:100%;
+height:250px;
+object-fit:cover;
+border-radius:15px;
+cursor:pointer;
+transition:0.3s;
+}
+.gallery img:hover{transform:scale(1.05);}
 
 /* PRICING */
 .pricing{
@@ -102,35 +103,10 @@ padding:25px;
 text-align:center;
 box-shadow:0 10px 25px rgba(0,0,0,0.1);
 }
-.price-card h3{
-margin-bottom:10px;
-}
 .price-card span{
 font-size:22px;
 font-weight:600;
 color:#2f4f4f;
-}
-.price-card button{
-margin-top:15px;
-padding:10px 20px;
-border:none;
-background:#2f4f4f;
-color:white;
-border-radius:25px;
-cursor:pointer;
-}
-
-/* GALLERY */
-.gallery{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
-gap:15px;
-}
-.gallery img{
-width:100%;
-height:200px;
-object-fit:cover;
-border-radius:12px;
 }
 
 /* CONTACT */
@@ -154,14 +130,7 @@ background:#2f4f4f;
 color:white;
 border-radius:30px;
 }
-
-/* MAP */
-iframe{
-width:100%;
-height:300px;
-border-radius:15px;
-border:none;
-}
+iframe{width:100%;height:300px;border-radius:15px;border:none}
 
 /* FOOTER */
 footer{
@@ -170,11 +139,7 @@ color:white;
 text-align:center;
 padding:30px;
 }
-footer a{
-color:white;
-margin:0 10px;
-font-size:20px;
-}
+footer a{color:white;margin:0 10px;font-size:20px}
 
 /* FLOAT BUTTONS */
 .whatsapp,.call{
@@ -186,20 +151,47 @@ color:white;
 font-size:22px;
 z-index:999;
 }
-.whatsapp{
-bottom:90px;
-background:#25d366;
+.whatsapp{bottom:90px;background:#25d366;}
+.call{bottom:20px;background:#2f4f4f;}
+
+/* LIGHTBOX */
+#lightbox{
+display:none;
+position:fixed;
+top:0;left:0;
+width:100%;height:100%;
+background:rgba(0,0,0,0.9);
+align-items:center;
+justify-content:center;
+flex-direction:column;
+z-index:2000;
 }
-.call{
-bottom:20px;
-background:#2f4f4f;
+#lightbox img{
+max-width:90%;
+max-height:80%;
+border-radius:10px;
+}
+.light-btn{
+position:absolute;
+background:white;
+border:none;
+padding:12px;
+cursor:pointer;
+}
+.prev{left:30px;}
+.next{right:30px;}
+.close{
+position:absolute;
+top:20px;
+right:30px;
+color:white;
+font-size:30px;
+cursor:pointer;
 }
 
-/* MOBILE */
 @media(max-width:768px){
 .hero h2{font-size:32px}
 .contact-box{grid-template-columns:1fr}
-header{padding:10px 20px}
 }
 </style>
 </head>
@@ -209,9 +201,9 @@ header{padding:10px 20px}
 <header>
 <h1>RSR Villa</h1>
 <nav>
-<a href="#about">About</a>
+<a href="#villa">Villa</a>
+<a href="#surroundings">Surroundings</a>
 <a href="#pricing">Pricing</a>
-<a href="#gallery">Gallery</a>
 <a href="#contact">Contact</a>
 </nav>
 </header>
@@ -219,54 +211,44 @@ header{padding:10px 20px}
 <div class="hero">
 <div class="hero-content">
 <h2>RSR Villa, Bhimtal</h2>
-<p>Bohemian • Nature • Peaceful Mountain Stay</p>
+<p>Peaceful • Mountain View • Private Luxury Stay</p>
 <button onclick="document.getElementById('contact').scrollIntoView()">Book Now</button>
 </div>
 </div>
 
-<section id="about">
-<h2 class="section-title">Welcome to RSR Villa</h2>
-<p style="text-align:center">
-Experience a peaceful stay surrounded by mountains, nature and Indian handicraft interiors.
-</p>
+<!-- VILLA SHOWCASE -->
+<section id="villa">
+<h2 class="section-title">Villa Showcase</h2>
+<div class="gallery">
+<img src="master1.jpg" onclick="openLightbox('master')">
+<img src="bedroom2-1.jpg" onclick="openLightbox('bed2')">
+<img src="living1.jpg" onclick="openLightbox('living')">
+<img src="balcony1.jpg" onclick="openLightbox('balcony')">
+</div>
 </section>
 
+<!-- SURROUNDINGS -->
+<section id="surroundings">
+<h2 class="section-title">Villa & Surroundings</h2>
+<div class="gallery">
+<img src="sur1.jpg" onclick="openLightbox('surround')">
+<img src="sur2.jpg" onclick="openLightbox('surround')">
+<img src="sur3.jpg" onclick="openLightbox('surround')">
+<img src="sur4.jpg" onclick="openLightbox('surround')">
+</div>
+</section>
+
+<!-- PRICING -->
 <section id="pricing">
 <h2 class="section-title">Pricing Options</h2>
 <div class="pricing">
-<div class="price-card">
-<h3>Single Room</h3>
-<span>₹ XXXX / Night</span>
-<button>Enquire</button>
-</div>
-<div class="price-card">
-<h3>1 BHK</h3>
-<span>₹ XXXX / Night</span>
-<button>Enquire</button>
-</div>
-<div class="price-card">
-<h3>Master Bedroom</h3>
-<span>₹ XXXX / Night</span>
-<button>Enquire</button>
-</div>
-<div class="price-card">
-<h3>Complete 2 BHK Villa</h3>
-<span>₹ XXXX / Night</span>
-<button>Book Now</button>
-</div>
+<div class="price-card"><h3>Master Bedroom</h3><span>₹ XXXX / Night</span></div>
+<div class="price-card"><h3>Bedroom Two</h3><span>₹ XXXX / Night</span></div>
+<div class="price-card"><h3>Complete 2BHK Villa</h3><span>₹ XXXX / Night</span></div>
 </div>
 </section>
 
-<section id="gallery">
-<h2 class="section-title">Villa & Surroundings</h2>
-<div class="gallery">
-<img src="https://images.unsplash.com/photo-1505691938895-1758d7feb511">
-<img src="https://images.unsplash.com/photo-1507089947368-19c1da9775ae">
-<img src="https://images.unsplash.com/photo-1499793983690-e29da59ef1c2">
-<img src="https://images.unsplash.com/photo-1502672260266-1c1ef2d93688">
-</div>
-</section>
-
+<!-- CONTACT -->
 <section id="contact">
 <h2 class="section-title">Enquiry & Location</h2>
 <div class="contact-box">
@@ -280,21 +262,60 @@ Experience a peaceful stay surrounded by mountains, nature and Indian handicraft
 </form>
 
 <div>
-<iframe src="https://www.google.com/maps?q=Bhimtal&output=embed"></iframe>
+<iframe src="https://maps.google.com/maps?q=https://maps.app.goo.gl/DqWZFtxf4CAytWKh9&output=embed"></iframe>
 </div>
 </div>
 </section>
 
 <footer>
 <p>Follow Us</p>
-<a href="#"><i class="fab fa-instagram"></i></a>
-<a href="#"><i class="fab fa-facebook"></i></a>
-<a href="#"><i class="fab fa-whatsapp"></i></a>
+<a href="https://www.instagram.com/rsrvillabhimtal?igsh=YXdjcDVyOHhkdjJm" target="_blank"><i class="fab fa-instagram"></i></a>
+<a href="https://www.facebook.com/share/1DB4MS2V8e/" target="_blank"><i class="fab fa-facebook"></i></a>
+<a href="https://wa.me/916398038550" target="_blank"><i class="fab fa-whatsapp"></i></a>
 <p style="margin-top:15px">© RSR Villa, Bhimtal</p>
 </footer>
 
-<a href="https://wa.me/91XXXXXXXXXX" class="whatsapp"><i class="fab fa-whatsapp"></i></a>
-<a href="tel:+91XXXXXXXXXX" class="call"><i class="fa fa-phone"></i></a>
+<a href="https://wa.me/916398038550" class="whatsapp"><i class="fab fa-whatsapp"></i></a>
+<a href="tel:+919259370967" class="call"><i class="fa fa-phone"></i></a>
+
+<!-- LIGHTBOX -->
+<div id="lightbox">
+<span class="close" onclick="closeLightbox()">&times;</span>
+<button class="light-btn prev" onclick="prevSlide()">❮</button>
+<img id="lightbox-img">
+<button class="light-btn next" onclick="nextSlide()">❯</button>
+</div>
+
+<script>
+let currentIndex=0;
+let currentImages=[];
+
+const galleries={
+master:["master1.jpg","master2.jpg","master-bath.jpg","master-balcony.jpg"],
+bed2:["bedroom2-1.jpg","bedroom2-2.jpg","bedroom2-bath.jpg"],
+living:["living1.jpg","dining1.jpg","kitchen1.jpg"],
+balcony:["balcony1.jpg"],
+surround:["sur1.jpg","sur2.jpg","sur3.jpg","sur4.jpg"]
+};
+
+function openLightbox(type){
+currentImages=galleries[type];
+currentIndex=0;
+document.getElementById("lightbox").style.display="flex";
+document.getElementById("lightbox-img").src=currentImages[currentIndex];
+}
+function closeLightbox(){
+document.getElementById("lightbox").style.display="none";
+}
+function nextSlide(){
+currentIndex=(currentIndex+1)%currentImages.length;
+document.getElementById("lightbox-img").src=currentImages[currentIndex];
+}
+function prevSlide(){
+currentIndex=(currentIndex-1+currentImages.length)%currentImages.length;
+document.getElementById("lightbox-img").src=currentImages[currentIndex];
+}
+</script>
 
 </body>
 </html>
