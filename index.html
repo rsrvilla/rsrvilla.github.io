@@ -24,16 +24,8 @@ align-items:center;
 padding:15px 40px;
 z-index:1000;
 }
-header h1{
-font-family:'Playfair Display',serif;
-color:#2f4f4f;
-}
-header nav a{
-margin:0 12px;
-text-decoration:none;
-color:#333;
-font-weight:500;
-}
+header h1{font-family:'Playfair Display',serif;color:#2f4f4f;}
+header nav a{margin:0 12px;text-decoration:none;color:#333;font-weight:500;}
 
 /* HERO */
 .hero{
@@ -50,11 +42,7 @@ background:#ffffffcc;
 padding:40px;
 border-radius:12px;
 }
-.hero h2{
-font-family:'Playfair Display',serif;
-font-size:48px;
-margin-bottom:10px;
-}
+.hero h2{font-family:'Playfair Display',serif;font-size:48px;margin-bottom:10px;}
 .hero p{font-size:18px;margin-bottom:20px;}
 .hero button{
 padding:12px 25px;
@@ -66,7 +54,7 @@ cursor:pointer;
 }
 
 /* SECTION */
-section{padding:80px 40px;max-width:1200px;margin:auto;}
+section{padding:90px 40px;max-width:1200px;margin:auto;}
 .section-title{
 text-align:center;
 font-family:'Playfair Display',serif;
@@ -90,7 +78,7 @@ transition:0.3s;
 }
 .gallery img:hover{transform:scale(1.05);}
 
-/* PRICING */
+/* CARDS */
 .pricing{
 display:grid;
 grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
@@ -129,6 +117,7 @@ border:none;
 background:#2f4f4f;
 color:white;
 border-radius:30px;
+cursor:pointer;
 }
 iframe{width:100%;height:350px;border-radius:15px;border:none}
 
@@ -217,15 +206,13 @@ cursor:pointer;
 </div>
 </div>
 
-<!-- ABOUT -->
 <section id="about">
 <h2 class="section-title">A Private Mountain Escape</h2>
-<p style="text-align:center; max-width:900px; margin:auto; font-size:18px; line-height:1.8;">
-Wake up to golden mountain sunlight and fresh Himalayan air. RSR Villa offers a peaceful and private homestay experience in the heart of Bhimtal. Designed with warmth, spacious comfort, attached balcony views and serene surroundings — this is your home away from home in the hills.
+<p style="text-align:center;max-width:900px;margin:auto;font-size:18px;line-height:1.8;">
+Wake up to golden mountain sunlight and fresh Himalayan air. RSR Villa offers a peaceful and private homestay experience surrounded by Himalayan serenity. Spacious interiors, attached balcony views, and calm surroundings create the perfect mountain getaway.
 </p>
 </section>
 
-<!-- VILLA SHOWCASE -->
 <section id="villa">
 <h2 class="section-title">Villa Showcase</h2>
 <div class="gallery">
@@ -236,7 +223,6 @@ Wake up to golden mountain sunlight and fresh Himalayan air. RSR Villa offers a 
 </div>
 </section>
 
-<!-- SURROUNDINGS -->
 <section id="surroundings">
 <h2 class="section-title">Villa & Surroundings</h2>
 <div class="gallery">
@@ -247,44 +233,60 @@ Wake up to golden mountain sunlight and fresh Himalayan air. RSR Villa offers a 
 </div>
 </section>
 
-<!-- NEARBY -->
 <section id="nearby">
 <h2 class="section-title">Nearby Attractions</h2>
 <div class="pricing">
-<div class="price-card"><h3>Bhimtal Lake</h3><p>Boating and peaceful lakeside views.</p></div>
-<div class="price-card"><h3>Sattal</h3><p>Seven serene interconnected lakes.</p></div>
-<div class="price-card"><h3>Naukuchiatal</h3><p>Paragliding and beautiful lake views.</p></div>
-<div class="price-card"><h3>Nainital</h3><p>Explore Mall Road and Naini Lake.</p></div>
-<div class="price-card"><h3>Kainchi Dham</h3><p>Spiritual retreat and peaceful temple.</p></div>
+<div class="price-card"><h3>Bhimtal Lake</h3></div>
+<div class="price-card"><h3>Sattal</h3></div>
+<div class="price-card"><h3>Naukuchiatal</h3></div>
+<div class="price-card"><h3>Nainital</h3></div>
+<div class="price-card"><h3>Kainchi Dham</h3></div>
 </div>
 </section>
 
-<!-- PRICING -->
 <section id="pricing">
 <h2 class="section-title">Pricing Options</h2>
 <div class="pricing">
-<div class="price-card"><h3>Master Bedroom</h3><span>₹ XXXX / Night</span></div>
-<div class="price-card"><h3>Bedroom Two</h3><span>₹ XXXX / Night</span></div>
-<div class="price-card"><h3>Complete 2BHK Villa</h3><span>₹ XXXX / Night</span></div>
+<div class="price-card"><h3>Private Suite</h3><span>₹ XXXX / Night</span></div>
+<div class="price-card"><h3>Signature Room</h3><span>₹ XXXX / Night</span></div>
+<div class="price-card"><h3>Entire 2BHK Villa</h3><span>₹ XXXX / Night</span></div>
 </div>
 </section>
 
-<!-- CONTACT -->
 <section id="contact">
 <h2 class="section-title">Enquiry & Location</h2>
 <div class="contact-box">
-<form>
-<input type="text" placeholder="Your Name">
-<input type="tel" placeholder="Phone Number">
-<input type="date">
-<input type="date">
-<textarea placeholder="Message"></textarea>
-<button type="submit">Submit Enquiry</button>
+
+<div>
+<h3>Direct Contact</h3><br>
+
+<strong>Ayaan</strong><br>
+<a href="tel:+916398038550">📞 +91 6398038550</a><br>
+<a href="https://wa.me/916398038550" target="_blank">💬 WhatsApp Chat</a>
+<br><br>
+
+<strong>Richa Singh Rajput</strong><br>
+<a href="tel:+919259370967">📞 +91 9259370967</a>
+
+<br><br><br>
+
+<h3>Send Booking Enquiry</h3>
+
+<form onsubmit="sendToWhatsApp(event)">
+<input type="text" id="name" placeholder="Your Name" required>
+<input type="tel" id="phone" placeholder="Phone Number" required>
+<input type="date" id="checkin" required>
+<input type="date" id="checkout" required>
+<textarea id="message" placeholder="Message"></textarea>
+<button type="submit">Send via WhatsApp</button>
 </form>
+
+</div>
 
 <div>
 <iframe src="https://www.google.com/maps?q=RSR+Villa+Bhimtal+Uttarakhand&output=embed"></iframe>
 </div>
+
 </div>
 </section>
 
@@ -299,7 +301,6 @@ Wake up to golden mountain sunlight and fresh Himalayan air. RSR Villa offers a 
 <a href="https://wa.me/916398038550" class="whatsapp"><i class="fab fa-whatsapp"></i></a>
 <a href="tel:+919259370967" class="call"><i class="fa fa-phone"></i></a>
 
-<!-- LIGHTBOX SCRIPT -->
 <script>
 let currentIndex=0;
 let currentImages=[];
@@ -319,6 +320,25 @@ document.getElementById("lightbox-img").src=currentImages[currentIndex];
 function closeLightbox(){document.getElementById("lightbox").style.display="none";}
 function nextSlide(){currentIndex=(currentIndex+1)%currentImages.length;document.getElementById("lightbox-img").src=currentImages[currentIndex];}
 function prevSlide(){currentIndex=(currentIndex-1+currentImages.length)%currentImages.length;document.getElementById("lightbox-img").src=currentImages[currentIndex];}
+
+function sendToWhatsApp(event){
+event.preventDefault();
+let name=document.getElementById("name").value;
+let phone=document.getElementById("phone").value;
+let checkin=document.getElementById("checkin").value;
+let checkout=document.getElementById("checkout").value;
+let message=document.getElementById("message").value;
+
+let url="https://wa.me/916398038550?text="
++"New Booking Enquiry:%0A%0A"
++"Name: "+name+"%0A"
++"Phone: "+phone+"%0A"
++"Check-in: "+checkin+"%0A"
++"Check-out: "+checkout+"%0A"
++"Message: "+message;
+
+window.open(url,"_blank");
+}
 </script>
 
 <div id="lightbox">
