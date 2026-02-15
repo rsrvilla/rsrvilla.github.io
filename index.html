@@ -12,7 +12,6 @@
 *{margin:0;padding:0;box-sizing:border-box}
 body{font-family:'Poppins',sans-serif;background:#f6f4ef;color:#333}
 
-/* HEADER */
 header{
 position:fixed;
 top:0;
@@ -27,7 +26,6 @@ z-index:1000;
 header h1{font-family:'Playfair Display',serif;color:#2f4f4f;}
 header nav a{margin:0 12px;text-decoration:none;color:#333;font-weight:500;}
 
-/* HERO */
 .hero{
 height:100vh;
 background:url('hero.jpg') center/cover no-repeat;
@@ -53,7 +51,6 @@ border-radius:30px;
 cursor:pointer;
 }
 
-/* SECTION */
 section{padding:90px 40px;max-width:1200px;margin:auto;}
 .section-title{
 text-align:center;
@@ -62,7 +59,6 @@ font-size:36px;
 margin-bottom:40px;
 }
 
-/* GALLERY */
 .gallery{
 display:grid;
 grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
@@ -74,11 +70,8 @@ height:260px;
 object-fit:cover;
 border-radius:15px;
 cursor:pointer;
-transition:0.3s;
 }
-.gallery img:hover{transform:scale(1.05);}
 
-/* CARDS */
 .pricing{
 display:grid;
 grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
@@ -91,13 +84,7 @@ padding:25px;
 text-align:center;
 box-shadow:0 10px 25px rgba(0,0,0,0.1);
 }
-.price-card span{
-font-size:22px;
-font-weight:600;
-color:#2f4f4f;
-}
 
-/* CONTACT */
 .contact-box{
 display:grid;
 grid-template-columns:1fr 1fr;
@@ -119,9 +106,9 @@ color:white;
 border-radius:30px;
 cursor:pointer;
 }
+
 iframe{width:100%;height:350px;border-radius:15px;border:none}
 
-/* FOOTER */
 footer{
 background:#2f4f4f;
 color:white;
@@ -130,7 +117,6 @@ padding:30px;
 }
 footer a{color:white;margin:0 10px;font-size:20px}
 
-/* FLOAT BUTTONS */
 .whatsapp,.call{
 position:fixed;
 right:20px;
@@ -142,41 +128,6 @@ z-index:999;
 }
 .whatsapp{bottom:90px;background:#25d366;}
 .call{bottom:20px;background:#2f4f4f;}
-
-/* LIGHTBOX */
-#lightbox{
-display:none;
-position:fixed;
-top:0;left:0;
-width:100%;height:100%;
-background:rgba(0,0,0,0.9);
-align-items:center;
-justify-content:center;
-flex-direction:column;
-z-index:2000;
-}
-#lightbox img{
-max-width:90%;
-max-height:80%;
-border-radius:10px;
-}
-.light-btn{
-position:absolute;
-background:white;
-border:none;
-padding:12px;
-cursor:pointer;
-}
-.prev{left:30px;}
-.next{right:30px;}
-.close{
-position:absolute;
-top:20px;
-right:30px;
-color:white;
-font-size:30px;
-cursor:pointer;
-}
 
 @media(max-width:768px){
 .hero h2{font-size:32px}
@@ -191,8 +142,6 @@ cursor:pointer;
 <h1>RSR Villa</h1>
 <nav>
 <a href="#villa">Villa</a>
-<a href="#surroundings">Surroundings</a>
-<a href="#nearby">Nearby</a>
 <a href="#pricing">Pricing</a>
 <a href="#contact">Contact</a>
 </nav>
@@ -206,79 +155,53 @@ cursor:pointer;
 </div>
 </div>
 
-<section id="about">
-<h2 class="section-title">A Private Mountain Escape</h2>
-<p style="text-align:center;max-width:900px;margin:auto;font-size:18px;line-height:1.8;">
-Wake up to golden mountain sunlight and fresh Himalayan air. RSR Villa offers a peaceful and private homestay experience surrounded by Himalayan serenity. Spacious interiors, attached balcony views, and calm surroundings create the perfect mountain getaway.
-</p>
-</section>
-
 <section id="villa">
 <h2 class="section-title">Villa Showcase</h2>
 <div class="gallery">
-<img src="master1.jpg" onclick="openLightbox('master')">
-<img src="bedroom2-1.jpg" onclick="openLightbox('bed2')">
-<img src="living1.jpg" onclick="openLightbox('living')">
-<img src="balcony1.jpg" onclick="openLightbox('balcony')">
-</div>
-</section>
-
-<section id="surroundings">
-<h2 class="section-title">Villa & Surroundings</h2>
-<div class="gallery">
-<img src="sur1.jpg" onclick="openLightbox('surround')">
-<img src="sur2.jpg" onclick="openLightbox('surround')">
-<img src="sur3.jpg" onclick="openLightbox('surround')">
-<img src="sur4.jpg" onclick="openLightbox('surround')">
-</div>
-</section>
-
-<section id="nearby">
-<h2 class="section-title">Nearby Attractions</h2>
-<div class="pricing">
-<div class="price-card"><h3>Bhimtal Lake</h3></div>
-<div class="price-card"><h3>Sattal</h3></div>
-<div class="price-card"><h3>Naukuchiatal</h3></div>
-<div class="price-card"><h3>Nainital</h3></div>
-<div class="price-card"><h3>Kainchi Dham</h3></div>
+<img src="master1.jpg">
+<img src="bedroom2-1.jpg">
+<img src="living1.jpg">
+<img src="balcony1.jpg">
 </div>
 </section>
 
 <section id="pricing">
 <h2 class="section-title">Pricing Options</h2>
 <div class="pricing">
-<div class="price-card"><h3>Private Suite</h3><span>₹ XXXX / Night</span></div>
-<div class="price-card"><h3>Signature Room</h3><span>₹ XXXX / Night</span></div>
-<div class="price-card"><h3>Entire 2BHK Villa</h3><span>₹ XXXX / Night</span></div>
+<div class="price-card"><h3>Private Suite</h3><p>₹ XXXX / Night</p></div>
+<div class="price-card"><h3>Signature Room</h3><p>₹ XXXX / Night</p></div>
+<div class="price-card"><h3>Entire 2BHK Villa</h3><p>₹ XXXX / Night</p></div>
 </div>
 </section>
 
 <section id="contact">
-<h2 class="section-title">Enquiry & Location</h2>
+<h2 class="section-title">Contact & Enquiry</h2>
+
 <div class="contact-box">
 
 <div>
 <h3>Direct Contact</h3><br>
 
 <strong>Ayaan</strong><br>
-<a href="tel:+916398038550">📞 +91 6398038550</a><br>
-<a href="https://wa.me/916398038550" target="_blank">💬 WhatsApp Chat</a>
-<br><br>
+<a href="tel:+916398038550">📞 +91 6398038550</a><br><br>
 
 <strong>Richa Singh Rajput</strong><br>
-<a href="tel:+919259370967">📞 +91 9259370967</a>
+<a href="tel:+919259370967">📞 +91 9259370967</a><br><br>
 
-<br><br><br>
+<strong>Email</strong><br>
+<a href="mailto:rsrvillabhimtal@gmail.com">✉ rsrvillabhimtal@gmail.com</a>
+
+<br><br>
 
 <h3>Send Booking Enquiry</h3>
 
-<form onsubmit="sendToWhatsApp(event)">
+<form onsubmit="sendEmail(event)">
 <input type="text" id="name" placeholder="Your Name" required>
 <input type="tel" id="phone" placeholder="Phone Number" required>
 <input type="date" id="checkin" required>
 <input type="date" id="checkout" required>
 <textarea id="message" placeholder="Message"></textarea>
-<button type="submit">Send via WhatsApp</button>
+<button type="submit">Send Enquiry</button>
 </form>
 
 </div>
@@ -291,62 +214,33 @@ Wake up to golden mountain sunlight and fresh Himalayan air. RSR Villa offers a 
 </section>
 
 <footer>
-<p>Follow Us</p>
-<a href="https://www.instagram.com/rsrvillabhimtal?igsh=YXdjcDVyOHhkdjJm" target="_blank"><i class="fab fa-instagram"></i></a>
-<a href="https://www.facebook.com/share/1DB4MS2V8e/" target="_blank"><i class="fab fa-facebook"></i></a>
-<a href="https://wa.me/916398038550" target="_blank"><i class="fab fa-whatsapp"></i></a>
-<p style="margin-top:15px">© RSR Villa, Bhimtal</p>
+<p>© RSR Villa, Bhimtal</p>
 </footer>
 
 <a href="https://wa.me/916398038550" class="whatsapp"><i class="fab fa-whatsapp"></i></a>
 <a href="tel:+919259370967" class="call"><i class="fa fa-phone"></i></a>
 
 <script>
-let currentIndex=0;
-let currentImages=[];
-const galleries={
-master:["master1.jpg","master2.jpg","master-bath.jpg","master-balcony.jpg"],
-bed2:["bedroom2-1.jpg","bedroom2-2.jpg","bedroom2-bath.jpg"],
-living:["living1.jpg","dining1.jpg","kitchen1.jpg"],
-balcony:["balcony1.jpg"],
-surround:["sur1.jpg","sur2.jpg","sur3.jpg","sur4.jpg"]
-};
-function openLightbox(type){
-currentImages=galleries[type];
-currentIndex=0;
-document.getElementById("lightbox").style.display="flex";
-document.getElementById("lightbox-img").src=currentImages[currentIndex];
-}
-function closeLightbox(){document.getElementById("lightbox").style.display="none";}
-function nextSlide(){currentIndex=(currentIndex+1)%currentImages.length;document.getElementById("lightbox-img").src=currentImages[currentIndex];}
-function prevSlide(){currentIndex=(currentIndex-1+currentImages.length)%currentImages.length;document.getElementById("lightbox-img").src=currentImages[currentIndex];}
-
-function sendToWhatsApp(event){
+function sendEmail(event){
 event.preventDefault();
+
 let name=document.getElementById("name").value;
 let phone=document.getElementById("phone").value;
 let checkin=document.getElementById("checkin").value;
 let checkout=document.getElementById("checkout").value;
 let message=document.getElementById("message").value;
 
-let url="https://wa.me/916398038550?text="
-+"New Booking Enquiry:%0A%0A"
-+"Name: "+name+"%0A"
-+"Phone: "+phone+"%0A"
-+"Check-in: "+checkin+"%0A"
-+"Check-out: "+checkout+"%0A"
-+"Message: "+message;
+let subject="New Booking Enquiry - RSR Villa";
+let body=
+"Name: "+name+"%0D%0A"+
+"Phone: "+phone+"%0D%0A"+
+"Check-in: "+checkin+"%0D%0A"+
+"Check-out: "+checkout+"%0D%0A"+
+"Message: "+message;
 
-window.open(url,"_blank");
+window.location.href="mailto:rsrvillabhimtal@gmail.com?subject="+subject+"&body="+body;
 }
 </script>
-
-<div id="lightbox">
-<span class="close" onclick="closeLightbox()">&times;</span>
-<button class="light-btn prev" onclick="prevSlide()">❮</button>
-<img id="lightbox-img">
-<button class="light-btn next" onclick="nextSlide()">❯</button>
-</div>
 
 </body>
 </html>
