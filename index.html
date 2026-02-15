@@ -4,14 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-    <title>RSR Villa | Best Luxury Homestay in Bhimtal | Lake View Villa</title>
-    <meta name="description" content="Experience luxury at RSR Villa, the best mountain homestay in Bhimtal. Enjoy breathtaking lake views, premium 2BHK villa stays, and peaceful Himalayan surroundings. Perfect for families and couples. Book your Bhimtal stay now!">
-    <meta name="keywords" content="RSR Villa Bhimtal, Best homestay in Bhimtal, Luxury villa in Bhimtal, 2BHK stay Bhimtal, Bhimtal lake view hotels, budget stay Bhimtal, Uttarakhand tourism, Nainital homestays">
-    <meta name="author" content="RSR Villa">
-    
-    <meta property="og:title" content="RSR Villa | Luxury Mountstay in Bhimtal">
-    <meta property="og:description" content="Wake up to the clouds! Best luxury 2BHK homestay near Bhimtal Lake.">
-    <meta property="og:image" content="hero.jpg"> <meta property="og:url" content="https://rsrvilla.github.io/">
+    <title>RSR Villa | Luxury Mountain Homestay in Bhimtal</title>
+    <meta name="description" content="Experience the best luxury homestay in Bhimtal at RSR Villa. Enjoy mountain views, 2BHK stay, and peace near Bhimtal Lake and Kainchi Dham.">
+    <meta name="keywords" content="RSR Villa Bhimtal, Best homestay in Bhimtal, Luxury Villa Bhimtal, Homestay near Kainchi Dham, Bhimtal Lake View Stay">
+    <meta property="og:title" content="RSR Villa | Luxury Homestay in Bhimtal">
+    <meta property="og:image" content="hero.jpg">
 
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
@@ -62,7 +59,7 @@
         /* HERO SECTION */
         .hero {
             height: 100vh;
-            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('hero.jpg') center/cover no-repeat;
+            background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('hero.jpg') center/cover no-repeat;
             display: flex; align-items: center; justify-content: center; text-align: center; color: var(--white);
         }
         .hero h2 { font-family: 'Playfair Display', serif; font-size: 60px; font-weight: 400; font-style: italic; margin-bottom: 10px; }
@@ -71,7 +68,7 @@
         .cta-btn {
             padding: 15px 35px; border: 1px solid var(--gold); background: var(--gold);
             color: white; text-transform: uppercase; letter-spacing: 2px; cursor: pointer;
-            transition: 0.4s; font-size: 11px; text-decoration: none;
+            transition: 0.4s; font-size: 11px;
         }
         .cta-btn:hover { background: transparent; color: var(--gold); }
 
@@ -89,7 +86,7 @@
         .gallery {
             display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px;
         }
-        .gallery-item { position: relative; overflow: hidden; height: 350px; cursor: pointer; border: 1px solid #ddd; border-radius: 4px; }
+        .gallery-item { position: relative; overflow: hidden; height: 350px; cursor: pointer; border: 1px solid #ddd; }
         .gallery img {
             width: 100%; height: 100%; object-fit: cover;
             transition: transform 0.8s ease;
@@ -107,20 +104,20 @@
         }
         .luxury-card {
             background: var(--white); padding: 40px 30px; text-align: center;
-            border: 1px solid #eee; transition: 0.4s; border-radius: 4px;
+            border: 1px solid #eee; transition: 0.4s;
         }
         .luxury-card:hover { border-color: var(--gold); transform: translateY(-5px); box-shadow: 0 10px 30px rgba(0,0,0,0.05); }
         .luxury-card h3 { font-family: 'Playfair Display', serif; font-size: 22px; margin-bottom: 15px; color: var(--gold); }
-        .price-tag { font-size: 18px; margin-top: 15px; display: block; font-weight: 600; color: var(--dark); }
+        .price-tag { font-size: 18px; margin-top: 15px; display: block; font-weight: 600; }
 
         /* CONTACT FORM */
         .contact-box {
             display: grid; grid-template-columns: 1fr 1fr; gap: 50px;
-            background: var(--white); padding: 50px; border: 1px solid #eee; border-radius: 8px;
+            background: var(--white); padding: 50px; border: 1px solid #eee;
         }
         input, textarea, select {
             width: 100%; padding: 15px; margin-bottom: 20px;
-            border: none; border-bottom: 1px solid #ccc; background: transparent; outline: none; font-family: inherit;
+            border: none; border-bottom: 1px solid #ccc; background: transparent; outline: none;
         }
         .submit-btn {
             background: var(--dark); color: white; border: none; padding: 15px;
@@ -128,7 +125,7 @@
         }
         .submit-btn:hover { background: var(--gold); }
 
-        /* FOOTER */
+        /* PREMIUM FOOTER */
         footer { 
             background: var(--dark); 
             color: #ffffff; 
@@ -154,10 +151,13 @@
             background: var(--premium-gradient);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            transition: 0.4s;
+            transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
             display: inline-block;
         }
-        .premium-socials a:hover { transform: scale(1.2); }
+        .premium-socials a:hover {
+            transform: scale(1.3) rotate(5deg);
+            filter: drop-shadow(0 0 8px rgba(163, 138, 86, 0.6));
+        }
 
         .premium-contact-info {
             font-family: 'Playfair Display', serif;
@@ -166,42 +166,58 @@
             display: inline-block;
             padding-top: 25px;
         }
-        .premium-contact-info p { font-size: 18px; margin: 10px 0; color: #e5e5e5; }
-        .premium-contact-info a { color: var(--gold); text-decoration: none; }
+        .premium-contact-info p {
+            font-size: 19px;
+            margin: 12px 0;
+            letter-spacing: 1px;
+            color: #e5e5e5;
+        }
+        .premium-contact-info a {
+            color: var(--gold);
+            text-decoration: none;
+            font-weight: 500;
+            transition: 0.3s;
+        }
+        .premium-contact-info i {
+            margin-right: 12px;
+            font-size: 20px;
+        }
 
         /* FLOATING ACTION */
         .whatsapp, .call {
-            position: fixed; right: 30px; width: 60px; height: 60px;
+            position: fixed; right: 30px; width: 50px; height: 50px;
             display: flex; align-items: center; justify-content: center;
-            border-radius: 50%; color: white; font-size: 24px; z-index: 999;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.3); text-decoration: none;
-            transition: 0.3s;
+            border-radius: 50%; color: white; font-size: 20px; z-index: 999;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
         }
-        .whatsapp { bottom: 105px; background: #25d366; }
+        .whatsapp { bottom: 95px; background: #25d366; }
         .call { bottom: 30px; background: var(--gold); }
-        .whatsapp:hover, .call:hover { transform: scale(1.1); }
 
         /* LIGHTBOX */
         #lightbox {
             display:none; position:fixed; top:0; left:0; width:100%; height:100%;
-            background:rgba(0,0,0,0.95); align-items:center; justify-content:center; z-index:2000;
+            background:rgba(0,0,0,0.98); align-items:center; justify-content:center; z-index:2000;
         }
-        #lightbox img { max-width: 90%; max-height: 80%; border: 2px solid var(--gold); }
-        .close { position:absolute; top:30px; right:40px; color:white; font-size:50px; cursor:pointer; }
+        #lightbox img { max-width: 85%; max-height: 80%; border: 2px solid var(--gold); }
+        .close { position:absolute; top:30px; right:40px; color:white; font-size:50px; cursor:pointer; font-weight: 200; }
         
         .nav-btn {
             position: absolute; top: 50%; transform: translateY(-50%);
             background: rgba(255, 255, 255, 0.1); color: white; border: none;
-            padding: 20px; cursor: pointer; font-size: 30px;
+            padding: 20px; cursor: pointer; font-size: 30px; transition: 0.3s;
         }
+        .nav-btn:hover { background: var(--gold); }
+        .prev-btn { left: 20px; }
+        .next-btn { right: 20px; }
 
         @media(max-width:768px){
-            header { padding: 15px; }
-            header nav { display: flex; flex-wrap: wrap; justify-content: center; }
-            header nav a { margin: 5px; font-size: 10px; }
-            .hero h2 { font-size: 36px; }
-            section { padding: 60px 20px; }
+            header { padding: 15px; flex-direction: column; }
+            header nav a { margin: 0 5px; font-size: 9px; }
+            .hero h2 { font-size: 32px; }
             .contact-box { grid-template-columns: 1fr; padding: 20px; }
+            .premium-socials { gap: 25px; }
+            .premium-socials a { font-size: 30px; }
+            .premium-contact-info p { font-size: 16px; }
         }
     </style>
 </head>
@@ -211,26 +227,27 @@
 <header>
     <h1>RSR Villa</h1>
     <nav>
-        <a href="#about">About</a>
+        <a href="#about">The Villa</a>
         <a href="#villa">Showcase</a>
+        <a href="#surroundings">Views</a>
         <a href="#nearby">Attractions</a>
         <a href="#pricing">Rates</a>
-        <a href="#contact">Book Now</a>
+        <a href="#contact">Contact</a>
     </nav>
 </header>
 
 <div class="hero">
     <div class="hero-content">
-        <p>Luxury Homestay in Bhimtal</p>
-        <h2>RSR Villa</h2>
-        <a href="#contact" class="cta-btn">Check Availability</a>
+        <p>A Sanctuary in the Clouds</p>
+        <h2>RSR Villa, Bhimtal</h2>
+        <button class="cta-btn" onclick="document.getElementById('contact').scrollIntoView()">Plan Your Stay</button>
     </div>
 </div>
 
 <section id="about">
-    <h2 class="section-title">The Perfect Hill Retreat</h2>
-    <p style="text-align:center; max-width:850px; margin:auto; font-weight:300; font-size:18px; color:#444;">
-        RSR Villa Bhimtal is more than just a stay; it's an experience. Nestled in the lush green hills of Uttarakhand, our luxury villa offers <b>breathtaking lake views</b>, modern amenities, and the peace you've been looking for. Whether it's a family vacation or a spiritual journey to <b>Kainchi Dham</b>, your comfort is our priority.
+    <h2 class="section-title">The Mountain Retreat</h2>
+    <p style="text-align:center; max-width:850px; margin:auto; font-weight:300; font-size:16px; color:#555;">
+        Wake up to golden mountain sunlight and fresh Himalayan air. RSR Villa offers a peaceful and private homestay experience in the heart of Bhimtal. Designed with warmth, spacious comfort, and breathtaking balcony views—this is your home away from home in the hills.
     </p>
 </section>
 
@@ -238,40 +255,52 @@
     <h2 class="section-title">Villa Showcase</h2>
     <div class="gallery">
         <div class="gallery-item" onclick="openLightbox('master')">
-            <img src="master1.jpg" alt="Master Bedroom RSR Villa">
+            <img src="master1.jpg">
             <div class="img-overlay">Master Bedroom Suite</div>
         </div>
         <div class="gallery-item" onclick="openLightbox('bed2')">
-            <img src="bedroom2-1.jpg" alt="Guest Room RSR Villa">
-            <div class="img-overlay">Premium Guest Suite</div>
+            <img src="bedroom2-1.jpg">
+            <div class="img-overlay">Guest Suite</div>
         </div>
         <div class="gallery-item" onclick="openLightbox('living')">
-            <img src="living1.jpg" alt="Living Room RSR Villa">
-            <div class="img-overlay">Elegant Living Area</div>
+            <img src="living1.jpg">
+            <div class="img-overlay">Living & Dining Area</div>
         </div>
         <div class="gallery-item" onclick="openLightbox('balcony')">
-            <img src="balcony1.jpg" alt="Bhimtal Lake View Balcony">
-            <div class="img-overlay">Panoramic Balcony View</div>
+            <img src="balcony1.jpg">
+            <div class="img-overlay">Private Balcony View</div>
         </div>
     </div>
 </section>
 
-<section id="nearby">
-    <h2 class="section-title">Explore Bhimtal</h2>
-    <div class="grid-container">
-        <div class="luxury-card"><i class="fa fa-water" style="color:var(--gold); font-size: 25px; margin-bottom:10px;"></i><h3>Bhimtal Lake</h3><p>Boating & fishing just minutes away.</p></div>
-        <div class="luxury-card"><i class="fa fa-om" style="color:var(--gold); font-size: 25px; margin-bottom:10px;"></i><h3>Kainchi Dham</h3><p>Peaceful visit to Neem Karoli Baba Ashram.</p></div>
-        <div class="luxury-card"><i class="fa fa-mountain" style="color:var(--gold); font-size: 25px; margin-bottom:10px;"></i><h3>Nainital</h3><p>1-hour drive to the famous hill station.</p></div>
-        <div class="luxury-card"><i class="fa fa-wind" style="color:var(--gold); font-size: 25px; margin-bottom:10px;"></i><h3>Naukuchiatal</h3><p>Best spot for paragliding & adventure.</p></div>
+<section id="surroundings">
+    <h2 class="section-title">Balcony Views & Surroundings</h2>
+    <div class="gallery">
+        <div class="gallery-item" onclick="openLightbox('surround')"><img src="sur1.jpg"></div>
+        <div class="gallery-item" onclick="openLightbox('surround')"><img src="sur2.jpg"></div>
+        <div class="gallery-item" onclick="openLightbox('surround')"><img src="sur3.jpg"></div>
+        <div class="gallery-item" onclick="openLightbox('surround')"><img src="sur4.jpg"></div>
     </div>
 </section>
 
-<section id="pricing" style="background: #fff;">
+<section id="nearby" style="background: #fff;">
+    <h2 class="section-title">Nearby Attractions</h2>
+    <div class="grid-container">
+        <div class="luxury-card"><h3>Bhimtal Lake</h3><p>Boating and lakeside views minutes away.</p></div>
+        <div class="luxury-card"><h3>Sattal</h3><p>A cluster of seven serene interconnected freshwater lakes.</p></div>
+        <div class="luxury-card"><h3>Naukuchiatal</h3><p>Famous for paragliding and lake views.</p></div>
+        <div class="luxury-card"><h3>Nainital</h3><p>Explore the vibrant Mall Road and the iconic Naini Lake.</p></div>
+        <div class="luxury-card"><h3>Kainchi Dham</h3><p>A global spiritual retreat and peaceful temple.</p></div>
+    </div>
+</section>
+
+<section id="pricing">
     <h2 class="section-title">Stay Options</h2>
     <div class="grid-container">
-        <div class="luxury-card"><h3>Complete 2BHK Villa</h3><p>Entire villa for family/groups</p><span class="price-tag">₹ 7,000 / Night</span></div>
-        <div class="luxury-card"><h3>Master Bedroom</h3><p>Luxury & Comfort</p><span class="price-tag">₹ 3,500 / Night</span></div>
-        <div class="luxury-card"><h3>Budget Suite</h3><p>Comfortable stay</p><span class="price-tag">₹ 2,200 / Night</span></div>
+        <div class="luxury-card"><h3>Master Bedroom</h3><span class="price-tag">₹ 3500 / Night</span></div>
+        <div class="luxury-card"><h3>Bedroom Two</h3><span class="price-tag">₹ 2200 / Night</span></div>
+        <div class="luxury-card"><h3>Complete 2BHK Villa</h3><span class="price-tag">₹ 7000 / Night</span></div>
+        <div class="luxury-card"><h3>1BHK Set</h3><span class="price-tag">₹ 4000 / Night</span></div>
     </div>
 </section>
 
@@ -279,58 +308,63 @@
     <h2 class="section-title">Reservations</h2>
     <div class="contact-box">
         <form action="https://formsubmit.co/rsrvillabhimtal@gmail.com" method="POST">
-            <input type="text" name="name" placeholder="Your Name" required>
-            <input type="tel" name="phone" placeholder="WhatsApp Number" required>
+            <input type="hidden" name="_captcha" value="false">
+            <input type="text" name="name" placeholder="Full Name" required>
+            <input type="tel" name="phone" placeholder="Phone Number" required>
             <div style="display:flex; gap:10px;">
-                <input type="text" onfocus="(this.type='date')" name="checkin" placeholder="Check-in">
-                <input type="text" onfocus="(this.type='date')" name="checkout" placeholder="Check-out">
+                <input type="text" onfocus="(this.type='date')" name="checkin" placeholder="Check-in Date" required>
+                <input type="text" onfocus="(this.type='date')" name="checkout" placeholder="Check-out Date" required>
             </div>
-            <select name="room">
-                <option value="Complete Villa">Complete 2BHK Villa</option>
-                <option value="Master Room">Master Bedroom</option>
+            <select name="room" required>
+                <option value="">Select Accommodation</option>
+                <option value="Master Bedroom">Master Bedroom</option>
+                <option value="Bedroom Two">Bedroom Two</option>
+                <option value="Complete 2BHK Villa">Complete 2BHK Villa</option>
             </select>
-            <textarea name="message" placeholder="Any special requests?"></textarea>
-            <button type="submit" class="submit-btn">Request Callback</button>
+            <textarea name="message" placeholder="Message or Special Requests"></textarea>
+            <button type="submit" class="submit-btn">Send Enquiry</button>
         </form>
-        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3483.567!2d79.54!3d29.35!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjnCsDIxJzAwLjAiTiA3OcKwMzInMDAuMCJF!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin" style="width:100%; height:100%; min-height:380px; border:none; border-radius:8px;"></iframe>
+        <iframe src="https://www.google.com/maps/embed?pb=YOUR_MAP_ID" style="width:100%; height:100%; min-height:380px; border:none; border-radius:8px;"></iframe>
     </div>
 </section>
 
 <footer>
     <h2>RSR VILLA</h2>
-    <p style="letter-spacing:4px; font-size:13px; margin-bottom:35px; color: var(--gold);">BHIMTAL • UTTARAKHAND</p>
+    <p style="letter-spacing:4px; font-size:13px; margin-bottom:35px; color: #a38a56;">BHIMTAL • UTTARAKHAND</p>
     
     <div class="premium-socials">
-        <a href="https://www.instagram.com/rsrvillabhimtal" target="_blank"><i class="fab fa-instagram"></i></a>
-        <a href="https://wa.me/916398038550" target="_blank"><i class="fab fa-whatsapp"></i></a>
+        <a href="https://www.instagram.com/rsrvillabhimtal" target="_blank" title="Follow on Instagram"><i class="fab fa-instagram"></i></a>
+        <a href="https://www.facebook.com/share/1DB4MS2V8e/" target="_blank" title="Follow on Facebook"><i class="fab fa-facebook-f"></i></a>
+        <a href="https://wa.me/916398038550" target="_blank" title="Chat on WhatsApp"><i class="fab fa-whatsapp"></i></a>
     </div>
 
     <div class="premium-contact-info">
-        <p><i class="fa fa-phone-alt"></i> Call: <a href="tel:+919259370967">+91 92593 70967</a></p>
-        <p><i class="fa fa-map-marker-alt"></i> Near Bhimtal Lake, Uttarakhand</p>
+        <p><i class="fa fa-phone-alt"></i> Call for Booking: <a href="tel:+919259370967">+91 92593 70967</a></p>
+        <p><i class="fab fa-whatsapp"></i> Chat with Us: <a href="https://wa.me/916398038550">+91 63980 38550</a></p>
     </div>
-    <p style="margin-top:50px; font-size:11px; color: #777;">© 2026 RSR Villa Bhimtal. Designed for Luxury.</p>
+    <p style="margin-top:50px; font-size:11px; color: #777; letter-spacing: 1px;">© 2026 RSR Villa Bhimtal. Handcrafted Luxury stays.</p>
 </footer>
 
-<a href="https://wa.me/916398038550" class="whatsapp" target="_blank"><i class="fab fa-whatsapp"></i></a>
+<a href="https://wa.me/916398038550" class="whatsapp"><i class="fab fa-whatsapp"></i></a>
 <a href="tel:+919259370967" class="call"><i class="fa fa-phone"></i></a>
 
 <div id="lightbox">
     <span class="close" onclick="closeLightbox()">×</span>
-    <button class="nav-btn" style="left:20px;" onclick="changeSlide(-1)">❮</button>
+    <button class="nav-btn prev-btn" onclick="changeSlide(-1)">❮</button>
     <img id="lightbox-img">
-    <button class="nav-btn" style="right:20px;" onclick="changeSlide(1)">❯</button>
+    <button class="nav-btn next-btn" onclick="changeSlide(1)">❯</button>
 </div>
 
 <script>
     let currentImgIndex = 0;
     let currentGallerySet = [];
+
     const galleries = {
-        master: ["master1.jpg", "master2.jpg"],
-        bed2: ["bedroom2-1.jpg", "bedroom2-2.jpg"],
-        living: ["living1.jpg", "dining1.jpg"],
+        master: ["master1.jpg", "master2.jpg", "master3.jpg", "master-bath.jpg", "master-balcony.jpg"],
+        bed2: ["bedroom2-1.jpg", "bedroom2-2.jpg", "bedroom2-bath.jpg"],
+        living: ["living1.jpg", "dining1.jpg", "kitchen1.jpg"],
         balcony: ["balcony1.jpg"],
-        surround: ["sur1.jpg", "sur2.jpg"]
+        surround: ["sur1.jpg", "sur2.jpg", "sur3.jpg", "sur4.jpg"]
     };
 
     function openLightbox(type) {
@@ -340,13 +374,23 @@
         document.getElementById("lightbox-img").src = currentGallerySet[currentImgIndex];
     }
 
-    function closeLightbox() { document.getElementById("lightbox").style.display = "none"; }
+    function closeLightbox() {
+        document.getElementById("lightbox").style.display = "none";
+    }
 
     function changeSlide(direction) {
         if (currentGallerySet.length <= 1) return;
         currentImgIndex = (currentImgIndex + direction + currentGallerySet.length) % currentGallerySet.length;
         document.getElementById("lightbox-img").src = currentGallerySet[currentImgIndex];
     }
+
+    document.addEventListener('keydown', function(e) {
+        if (document.getElementById("lightbox").style.display === "flex") {
+            if (e.key === "ArrowLeft") changeSlide(-1);
+            if (e.key === "ArrowRight") changeSlide(1);
+            if (e.key === "Escape") closeLightbox();
+        }
+    });
 </script>
 
 </body>
