@@ -26,7 +26,16 @@
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Montserrat', sans-serif; background: var(--light); color: var(--dark); line-height: 1.6; scroll-behavior: smooth; }
+        body {
+    font-family: 'Montserrat', sans-serif;
+    background: var(--light);
+    color: var(--dark);
+    line-height: 1.6;
+    scroll-behavior: smooth;
+    padding-top: 90px;
+    overflow-x: hidden;
+}
+
 
         /* LUXURY HEADER */
         header {
@@ -61,10 +70,16 @@
 
         /* HERO SECTION */
         .hero {
-            height: 100vh;
-            background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('hero.jpg') center/cover no-repeat;
-            display: flex; align-items: center; justify-content: center; text-align: center; color: var(--white);
-        }
+            .hero {
+    min-height: 100vh;
+    background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('hero.jpg') center/cover no-repeat;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: var(--white);
+}
+    
         .hero h2 { font-family: 'Playfair Display', serif; font-size: 60px; font-weight: 400; font-style: italic; margin-bottom: 10px; }
         .hero p { font-size: 14px; letter-spacing: 5px; text-transform: uppercase; margin-bottom: 30px; }
         
@@ -350,7 +365,29 @@
             .premium-socials { gap: 25px; }
             .premium-socials a { font-size: 30px; }
             .premium-contact-info p { font-size: 16px; }
-        }
+            section {
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+body {
+    overflow-x: hidden;
+}
+
+.host-container {
+    flex-direction: column;
+}
+
+.host-image {
+    width: 100%;
+    height: 320px;
+}
+
+.contact-box iframe {
+    min-height: 300px;
+}
+
+        
     </style>
 </head>
 
