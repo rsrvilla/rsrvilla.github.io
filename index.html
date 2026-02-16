@@ -342,9 +342,8 @@
     font-size: 12px;
 }
 .stars { color: var(--gold); margin-bottom: 10px; font-size: 14px; } 
-   @media (max-width: 768px) {
+@media (max-width: 768px) {
 
-    /* ===== GLOBAL CENTER & NO SIDE GAP ===== */
     html, body {
         width: 100%;
         overflow-x: hidden;
@@ -352,51 +351,47 @@
         padding: 0;
     }
 
-    body {
-        display: flex;
-        justify-content: center;
-    }
-
     header, section, footer {
         width: 100%;
-        max-width: 100%;
     }
 
-    img {
-        max-width: 100%;
-        height: auto;
-        display: block;
-    }
-
-    /* ===== HEADER ===== */
+    /* HEADER */
     header {
         padding: 15px;
         flex-direction: column;
         gap: 10px;
     }
 
-    header nav a {
-        margin: 0 5px;
-        font-size: 9px;
-        padding: 6px 4px;
+    header nav {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
     }
 
-    /* ===== HERO ===== */
+    header nav a {
+        font-size: 10px;
+        margin: 5px 8px;
+    }
+
+    /* HERO */
+    .hero {
+        padding: 0 15px;
+        text-align: center;
+    }
+
     .hero h2 {
         font-size: 32px;
         line-height: 1.2;
     }
 
-    /* ===== SECTION PADDING ===== */
+    /* SECTIONS */
     section {
-        padding-left: 20px;
-        padding-right: 20px;
+        padding: 80px 20px;
     }
 
-    /* ===== HOST SECTION (IMAGE → TEXT → NAME) ===== */
+    /* HOST SECTION (mobile order fix) */
     .host-container {
         flex-direction: column;
-        align-items: center;
         text-align: center;
         padding: 30px 20px;
         gap: 25px;
@@ -408,32 +403,22 @@
         height: 300px;
     }
 
-    .host-content {
-        width: 100%;
-    }
-
     .host-content h3 {
         font-size: 26px;
-        margin-top: 10px;
     }
 
-    .host-signature {
-        margin-top: 15px;
-        display: block;
-    }
-
-    /* ===== TESTIMONIAL ===== */
+    /* TESTIMONIAL */
     .diary-card {
         padding: 25px;
     }
 
-    /* ===== CONTACT ===== */
+    /* CONTACT */
     .contact-box {
         grid-template-columns: 1fr;
         padding: 20px;
     }
 
-    /* ===== FOOTER ===== */
+    /* FOOTER */
     .premium-socials {
         gap: 25px;
     }
@@ -446,6 +431,7 @@
         font-size: 16px;
     }
 }
+
 
     </style>
 </head>
