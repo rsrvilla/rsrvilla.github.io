@@ -217,6 +217,35 @@
         .prev-btn { left: 20px; }
         .next-btn { right: 20px; }
 
+        /* AMENITIES SECTION */
+.amenities-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 30px;
+    text-align: center;
+    margin-top: 40px;
+}
+.amenity-item {
+    padding: 20px;
+}
+.amenity-item i {
+    font-size: 35px;
+    color: var(--gold);
+    margin-bottom: 15px;
+    display: block;
+}
+.amenity-item p {
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 500;
+}
+.guest-info {
+    font-size: 14px;
+    color: #777;
+    margin-top: 8px;
+    font-style: italic;
+}
         @media(max-width:768px){
             header { padding: 15px; flex-direction: column; }
             header nav a { margin: 0 5px; font-size: 9px; }
