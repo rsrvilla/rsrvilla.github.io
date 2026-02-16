@@ -341,11 +341,35 @@
     letter-spacing: 1px; 
     font-size: 12px;
 }
-.stars { color: var(--gold); margin-bottom: 10px; font-size: 14px; }        
-        @media(max-width:768px){
+.stars { color: var(--gold); margin-bottom: 10px; font-size: 14px; } 
+     @media(max-width:768px){
             header { padding: 15px; flex-direction: column; }
             header nav a { margin: 0 5px; font-size: 9px; }
             .hero h2 { font-size: 32px; }
+            .host-image {
+        min-width: 100%;
+        height: 300px;
+    }
+
+    .host-content h3 {
+        font-size: 26px;
+    }
+
+    .diary-card {
+        padding: 25px;
+    }
+
+    section {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
+    img {
+        max-width: 100%;
+        height: auto;
+    }
+
+    
             .contact-box { grid-template-columns: 1fr; padding: 20px; }
             .premium-socials { gap: 25px; }
             .premium-socials a { font-size: 30px; }
