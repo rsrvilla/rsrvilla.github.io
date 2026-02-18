@@ -778,40 +778,42 @@ document.addEventListener("keydown", function(e) {
 });
 </script>
 <script>
-const sheetURL = "https://docs.google.com/spreadsheets/d/1r95CA2AOeAlGdrkzuYtl_Uq2KEiEDqvyuuY1HZcNaCs/export?format=csv";
+const sheetURL =
+  "https://docs.google.com/spreadsheets/d/1r95CA2AOeAlGdrkzuYtl_Uq2KEiEDqvyuuY1HZcNaCs/gviz/tq?tqx=out:csv";
 
 fetch(sheetURL)
-.then(res => res.text())
-.then(csv => {
+  .then(res => res.text())
+  .then(csv => {
     const rows = csv.split("\n").slice(1);
     let html = "";
 
     rows.reverse().forEach(row => {
-        const cols = row.split(",");
+      const cols = row.match(/(".*?"|[^",]+)(?=\s*,|\s*$)/g);
+      if (!cols) return;
 
-        const title = cols[1]?.replaceAll('"','') || "";
-        const type  = cols[2]?.replaceAll('"','') || "";
-        const desc  = cols[3]?.replaceAll('"','') || "";
-        const image = cols[4]?.replaceAll('"','') || "";
-        const date  = cols[0]?.replaceAll('"','') || "";
-        const publish = cols[6]?.toLowerCase().includes("yes");
+      const date    = cols[0]?.replaceAll('"','').trim();
+      const title   = cols[1]?.replaceAll('"','').trim();
+      const type    = cols[2]?.replaceAll('"','').trim();
+      const desc    = cols[3]?.replaceAll('"','').trim();
+      const image   = cols[4]?.replaceAll('"','').trim();
+      const publish = cols[6]?.toLowerCase().includes("yes");
 
-        if (!publish || !title || !image) return;
+      if (!publish || !title || !image) return;
 
-        html += `
+      html += `
         <div class="journal-post">
-            <img src="${image}" alt="${title}">
-            <div class="journal-content">
-                <h3>${title}</h3>
-                <p>${desc}</p>
-                <div class="journal-meta">${type} • ${date}</div>
-            </div>
+          <img src="${image}" alt="${title}">
+          <div class="journal-content">
+            <h3>${title}</h3>
+            <p>${desc}</p>
+            <div class="journal-meta">${type} • ${date}</div>
+          </div>
         </div>
-        `;
+      `;
     });
 
     document.getElementById("journal-container").innerHTML = html;
-});
+  });
 </script>
 
 </body>
