@@ -777,23 +777,26 @@ document.addEventListener("keydown", function(e) {
     }
 });
 </script>
-<script>
-const sheetURL = "https://docs.google.com/spreadsheets/d/1r95CA2AOeAlGdrkzuYtl_Uq2KEiEDqvyuuY1HZcNaCs/gviz/tq?tqx=out:json";
+ <script>
+const sheetURL = "https://docs.google.com/spreadsheets/d/1r95CA2AOeAlGdrkzuYtl_Uq2KEiEDqvyuuY1HZcNaCs/export?format=csv";
 
 fetch(sheetURL)
 .then(res => res.text())
-.then(text => {
-    const json = JSON.parse(text.substring(47).slice(0, -2));
-    const rows = json.table.rows;
+.then(csv => {
+    const rows = csv.split("\n").slice(1);
     let html = "";
 
     rows.reverse().forEach(row => {
-        const title = row.c[0]?.v || "";
-        const image = row.c[1]?.v || "";
-        const desc  = row.c[2]?.v || "";
-        const date  = row.c[3]?.v || "";
+        const cols = row.split(",");
 
-        if (!title || !image) return;
+        const title = cols[1]?.replaceAll('"','') || "";
+        const type  = cols[2]?.replaceAll('"','') || "";
+        const desc  = cols[3]?.replaceAll('"','') || "";
+        const image = cols[4]?.replaceAll('"','') || "";
+        const date  = cols[0]?.replaceAll('"','') || "";
+        const publish = cols[6]?.toLowerCase().includes("yes");
+
+        if (!publish || !title || !image) return;
 
         html += `
         <div class="journal-post">
@@ -801,7 +804,7 @@ fetch(sheetURL)
             <div class="journal-content">
                 <h3>${title}</h3>
                 <p>${desc}</p>
-                <div class="journal-meta">${date}</div>
+                <div class="journal-meta">${type} • ${date}</div>
             </div>
         </div>
         `;
@@ -809,7 +812,7 @@ fetch(sheetURL)
 
     document.getElementById("journal-container").innerHTML = html;
 });
-</script>
+</script> 
 
 </body>
 </html>
