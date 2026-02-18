@@ -777,54 +777,30 @@ document.addEventListener("keydown", function(e) {
     }
 });
 </script>
- <script>
+<script>
 const sheetURL = "https://docs.google.com/spreadsheets/d/1r95CA2AOeAlGdrkzuYtl_Uq2KEiEDqvyuuY1HZcNaCs/export?format=csv";
-
-function parseCSV(text) {
-    const rows = [];
-    let current = '';
-    let row = [];
-    let insideQuotes = false;
-
-    for (let i = 0; i < text.length; i++) {
-        const char = text[i];
-
-        if (char === '"') {
-            insideQuotes = !insideQuotes;
-        } else if (char === ',' && !insideQuotes) {
-            row.push(current);
-            current = '';
-        } else if (char === '\n' && !insideQuotes) {
-            row.push(current);
-            rows.push(row);
-            row = [];
-            current = '';
-        } else {
-            current += char;
-        }
-    }
-    return rows;
-}
 
 fetch(sheetURL)
 .then(res => res.text())
 .then(csv => {
-    const rows = parseCSV(csv).slice(1); // header skip
+    const rows = csv.split("\n").slice(1);
     let html = "";
 
-    rows.reverse().forEach(cols => {
-        const date = cols[0] || "";
-        const title = cols[1] || "";
-        const type = cols[2] || "";
-        const desc = cols[3] || "";
-        const image = cols[4] || "";
-        const publish = (cols[6] || "").toLowerCase().includes("yes");
+    rows.reverse().forEach(row => {
+        const cols = row.split(",");
+
+        const title = cols[1]?.replaceAll('"','') || "";
+        const type  = cols[2]?.replaceAll('"','') || "";
+        const desc  = cols[3]?.replaceAll('"','') || "";
+        const image = cols[4]?.replaceAll('"','') || "";
+        const date  = cols[0]?.replaceAll('"','') || "";
+        const publish = cols[6]?.toLowerCase().includes("yes");
 
         if (!publish || !title || !image) return;
 
         html += `
         <div class="journal-post">
-            <img src="${image.trim()}" alt="${title}">
+            <img src="${image}" alt="${title}">
             <div class="journal-content">
                 <h3>${title}</h3>
                 <p>${desc}</p>
