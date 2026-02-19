@@ -1,3 +1,8 @@
+
+
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -315,63 +320,6 @@
 .exp-card:hover img { transform: scale(1.1); }
 .exp-card h4 { font-family: 'Playfair Display', serif; font-size: 24px; margin-bottom: 5px; }
 
-#villa-journal {
-    padding: 100px 60px;
-    background: #fff;
-}
-
-.journal-post {
-    max-width: 1100px;
-    margin: 0 auto 80px;
-    display: grid;
-    grid-template-columns: 1.2fr 1fr;
-    gap: 60px;
-    align-items: center;
-}
-
-.journal-post:nth-child(even) {
-    grid-template-columns: 1fr 1.2fr;
-}
-
-.journal-post img {
-    width: 100%;
-    height: 420px;
-    object-fit: cover;
-    border: 1px solid #e5e5e5;
-}
-
-.journal-content h3 {
-    font-family: 'Playfair Display', serif;
-    font-size: 32px;
-    font-weight: 400;
-    margin-bottom: 20px;
-}
-
-.journal-content p {
-    font-size: 15px;
-    color: #555;
-    line-height: 1.9;
-}
-
-.journal-meta {
-    margin-top: 20px;
-    font-size: 11px;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    color: #b1976b;
-}
-
-/* Mobile */
-@media (max-width: 768px) {
-    .journal-post {
-        grid-template-columns: 1fr;
-        gap: 30px;
-    }
-    .journal-post img {
-        height: 280px;
-    }
-}
-
 /* 3. The Host Section */
 .host-container {
     display: flex;
@@ -641,11 +589,6 @@
     </div>
 </section>
 
-<section id="villa-journal">
-    <h2 class="section-title">Villa Journal</h2>
-    <div id="journal-container"></div>
-</section>
-
 <section id="host" style="background: var(--white);">
     <div class="host-container">
         <div class="host-image">
@@ -741,82 +684,42 @@
 </div>
 
 <script>
-let currentImgIndex = 0;
-let currentGallerySet = [];
+    let currentImgIndex = 0;
+    let currentGallerySet = [];
 
-const galleries = {
-    master: ["master1.jpg", "master2.jpg", "master3.jpg", "master-bath.jpg", "master-balcony.jpg"],
-    bed2: ["bedroom2-1.jpg", "bedroom2-2.jpg", "bedroom2-bath.jpg"],
-    living: ["living1.jpg", "dining1.jpg", "kitchen1.jpg"],
-    balcony: ["balcony1.jpg"],
-    surround: ["sur1.jpg", "sur2.jpg", "sur3.jpg", "sur4.jpg"]
-};
+    const galleries = {
+        master: ["master1.jpg", "master2.jpg", "master3.jpg", "master-bath.jpg", "master-balcony.jpg"],
+        bed2: ["bedroom2-1.jpg", "bedroom2-2.jpg", "bedroom2-bath.jpg"],
+        living: ["living1.jpg", "dining1.jpg", "kitchen1.jpg"],
+        balcony: ["balcony1.jpg"],
+        surround: ["sur1.jpg", "sur2.jpg", "sur3.jpg", "sur4.jpg"]
+    };
 
-function openLightbox(type) {
-    currentGallerySet = galleries[type];
-    currentImgIndex = 0;
-    document.getElementById("lightbox").style.display = "flex";
-    document.getElementById("lightbox-img").src = currentGallerySet[currentImgIndex];
-}
-
-function closeLightbox() {
-    document.getElementById("lightbox").style.display = "none";
-}
-
-function changeSlide(direction) {
-    if (currentGallerySet.length <= 1) return;
-    currentImgIndex = (currentImgIndex + direction + currentGallerySet.length) % currentGallerySet.length;
-    document.getElementById("lightbox-img").src = currentGallerySet[currentImgIndex];
-}
-
-document.addEventListener("keydown", function(e) {
-    if (document.getElementById("lightbox").style.display === "flex") {
-        if (e.key === "ArrowLeft") changeSlide(-1);
-        if (e.key === "ArrowRight") changeSlide(1);
-        if (e.key === "Escape") closeLightbox();
+    function openLightbox(type) {
+        currentGallerySet = galleries[type];
+        currentImgIndex = 0;
+        document.getElementById("lightbox").style.display = "flex";
+        document.getElementById("lightbox-img").src = currentGallerySet[currentImgIndex];
     }
-});
-</script>
-<script>
-const sheetURL =
-  "https://docs.google.com/spreadsheets/d/1r95CA2AOeAlGdrkzuYtl_Uq2KEiEDqvyuuY1HZcNaCs/gviz/tq?tqx=out:csv";
 
-fetch(sheetURL)
-  .then(res => res.text())
-  .then(csv => {
-    const rows = csv.split("\n").slice(1);
-    let html = "";
+    function closeLightbox() {
+        document.getElementById("lightbox").style.display = "none";
+    }
 
-    rows.reverse().forEach(row => {
-      const cols = row.match(/(".*?"|[^",]+)(?=\s*,|\s*$)/g);
-      if (!cols) return;
+    function changeSlide(direction) {
+        if (currentGallerySet.length <= 1) return;
+        currentImgIndex = (currentImgIndex + direction + currentGallerySet.length) % currentGallerySet.length;
+        document.getElementById("lightbox-img").src = currentGallerySet[currentImgIndex];
+    }
 
-      const date    = cols[0]?.replaceAll('"','').trim();
-      const title   = cols[1]?.replaceAll('"','').trim();
-      const type    = cols[2]?.replaceAll('"','').trim();
-      const desc    = cols[3]?.replaceAll('"','').trim();
-      const image   = cols[4]?.replaceAll('"','').trim();
-      const publish = cols[6]?.toLowerCase().includes("yes");
-
-      if (!publish || !title || !image) return;
-
-      html += `
-        <div class="journal-post">
-          <img src="${image}" alt="${title}">
-          <div class="journal-content">
-            <h3>${title}</h3>
-            <p>${desc}</p>
-            <div class="journal-meta">${type} • ${date}</div>
-          </div>
-        </div>
-      `;
+    document.addEventListener('keydown', function(e) {
+        if (document.getElementById("lightbox").style.display === "flex") {
+            if (e.key === "ArrowLeft") changeSlide(-1);
+            if (e.key === "ArrowRight") changeSlide(1);
+            if (e.key === "Escape") closeLightbox();
+        }
     });
-
-    document.getElementById("journal-container").innerHTML = html;
-  });
 </script>
 
 </body>
 </html>
-
-    
