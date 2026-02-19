@@ -26,6 +26,7 @@
 </script>
 
 <link rel="icon" type="image/png" href="favicon.png">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.2/papaparse.min.js"></script>
 
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://rsrvilla.github.io/">
@@ -452,6 +453,67 @@
     }
 }
 
+/* --- DYNAMIC NEWS SECTION --- */
+.news-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    margin-top: 40px;
+}
+.news-card {
+    background: var(--white);
+    border: 1px solid #eee;
+    transition: 0.4s;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+.news-card:hover {
+    border-color: var(--gold);
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+}
+.news-img-box {
+    height: 200px;
+    width: 100%;
+    overflow: hidden;
+}
+.news-img-box img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: 0.6s ease;
+}
+.news-card:hover .news-img-box img {
+    transform: scale(1.1);
+}
+.news-content {
+    padding: 25px;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+.news-date {
+    font-size: 11px;
+    letter-spacing: 2px;
+    color: var(--gold);
+    text-transform: uppercase;
+    font-weight: 600;
+    margin-bottom: 10px;
+    display: block;
+}
+.news-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 20px;
+    color: var(--dark);
+    margin-bottom: 12px;
+    line-height: 1.3;
+}
+.news-text {
+    font-size: 14px;
+    color: #666;
+    line-height: 1.6;
+}
 
     </style>
 </head>
@@ -617,6 +679,13 @@
         </div>
     </div>
 </section>
+
+<section id="updates" style="background: var(--light);">
+    <h2 class="section-title">Latest from the Valley</h2>
+    <div id="news-container" class="news-grid">
+        <p style="text-align:center; width:100%; color:#888;">Updating feed...</p>
+    </div>
+</section>
     
 <section id="pricing">
     <h2 class="section-title">Stay Options & Capacity</h2>
@@ -748,6 +817,50 @@
         }
     });
 </script>
+<script>
+  // Aapki Google Sheet ka CSV Link
+  const sheetURL = "https://docs.google.com/spreadsheets/d/e/2PACX-1vRQdmpCnTKsDakcUPYd0A8lIxdvB79lf1z_bSxwy1naITfLz6X3QDqq-kZ6QMH2CkA-fTx6c6UWsmvi/pub?gid=0&single=true&output=csv";
+
+  Papa.parse(sheetURL, {
+    download: true,
+    header: true,
+    complete: function(results) {
+      const data = results.data;
+      const container = document.getElementById('news-container');
+      
+      // Filter: Sirf wo rows jisme Publish wale column mein 'yes' likha ho
+      const publishedPosts = data.filter(row => 
+        row.Title && row.Publish && row.Publish.toLowerCase().trim() === 'yes'
+      );
+
+      // Agar koi post publish ke liye ready hai, toh 'Loading...' text hatao
+      if(publishedPosts.length > 0) {
+          container.innerHTML = ""; 
+      } else {
+          container.innerHTML = "<p style='text-align:center; width:100%; color:#888;'>No new updates currently.</p>";
+      }
+
+      // Sirf latest 3 'yes' wali posts ko show karna
+      publishedPosts.reverse().slice(0, 3).forEach(row => {
+        const imgHTML = row.Image ? 
+          `<div class="news-img-box"><img src="${row.Image}" alt="${row.Title}"></div>` : '';
+
+        const card = `
+          <div class="news-card">
+            ${imgHTML}
+            <div class="news-content">
+              <span class="news-date">${row.Date}</span>
+              <h3 class="news-title">${row.Title}</h3>
+              <p class="news-text">${row.Text}</p>
+            </div>
+          </div>
+        `;
+        container.innerHTML += card;
+      });
+    }
+  });
+</script>
+
 
 </body>
 </html>
